@@ -1,0 +1,35 @@
+@forward 'themes/blue.scss';
+// @forward 'themes/green.scss';
+// @forward 'themes/pink.scss';
+// @forward 'themes/red.scss';
+@forward 'tokens/space';
+@forward 'tokens/text';
+@forward 'tokens/border';
+@forward 'tokens/body';
+@forward 'components/button';
+@forward 'components/input';
+@forward 'components/form';
+@forward 'components/card';
+@forward 'components/pagination';
+@forward 'components/pagination-controls';
+@forward 'templates/main';
+@forward 'classes/heading';
+
+:root {
+  /* Reset & Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--font-base);
+    font-weight: var(--font-normal);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+    transition: all 0.2s ease;
+    background-color: var(--body-background-color);
+  }
+}

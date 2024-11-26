@@ -1,0 +1,23 @@
+.primary {
+  background-color: var(--button-primary-background);
+  color: var(--button-primary-text);
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-primary-background-hover);
+  }
+}
+
+.secondary {
+  background-color: var(--button-secondary-background);
+  color: var(--button-secondary-text);
+
+  &:hover:not(:disabled) {
+    background-color: var(--button-secondary-background-hover);
+  }
+}
+
+.outline {
+  background-color: var(--button-outline-background);
+  border: var(--button-outline-border);
+  color: var(--button-outline-text);
+}

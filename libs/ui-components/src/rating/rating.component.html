@@ -1,0 +1,51 @@
+<div class="rating" [attr.aria-label]="rating() + ' out of 5 stars'">
+  <div class="stars">
+    @for(star of stars(); track $index) {
+    <svg
+      class="star"
+      [ngClass]="{
+        'star--filled': star === 1,
+        'star--75': star === 0.75,
+        'star--50': star === 0.5,
+        'star--25': star === 0.25,
+        'star--empty': star === 0
+      }"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+      />
+    </svg>
+    }
+  </div>
+  <span class="count">({{ count() }})</span>
+</div>
+
+<!-- Define all gradients -->
+<svg
+  class="star-fragment"
+  width="0"
+  height="0"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <!-- 25% filled -->
+    <linearGradient id="star-gradient-25" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="25%" stop-color="var(--color-warning-500)" />
+      <stop offset="25%" stop-color="var(--color-neutral-200)" />
+    </linearGradient>
+
+    <!-- 50% filled -->
+    <linearGradient id="star-gradient-50" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="50%" stop-color="var(--color-warning-500)" />
+      <stop offset="50%" stop-color="var(--color-neutral-200)" />
+    </linearGradient>
+
+    <!-- 75% filled -->
+    <linearGradient id="star-gradient-75" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="75%" stop-color="var(--color-warning-500)" />
+      <stop offset="75%" stop-color="var(--color-neutral-200)" />
+    </linearGradient>
+  </defs>
+</svg>

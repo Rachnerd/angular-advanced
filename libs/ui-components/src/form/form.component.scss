@@ -1,0 +1,56 @@
+// form.component.scss
+:host {
+  display: block;
+}
+
+.form-container {
+  background-color: var(--form-background-color);
+  border: 1px solid var(--form-border-color);
+  border-radius: var(--form-radius);
+  box-shadow: var(--form-shadow);
+  width: 100%;
+  position: relative;
+
+  &.form-loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-gap);
+  padding: var(--form-padding);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-gap);
+  background-color: var(--form-background-color);
+  border-top: 1px solid var(--form-border-color);
+  border-bottom-left-radius: var(--form-radius);
+  border-bottom-right-radius: var(--form-radius);
+
+  &.form-actions-sticky {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+  }
+}
+
+// Size variations
+.form-container[data-size='sm'] {
+  .form-content,
+  .form-actions {
+    padding: var(--form-padding-sm);
+  }
+}
+
+.form-container[data-size='lg'] {
+  .form-content,
+  .form-actions {
+    padding: var(--form-padding-lg);
+  }
+}

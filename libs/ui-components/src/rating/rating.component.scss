@@ -1,0 +1,44 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.stars {
+  display: flex;
+  gap: var(--space-xxs);
+}
+
+.star {
+  width: var(--space-md);
+  height: var(--space-md);
+
+  &--filled {
+    fill: var(--color-warning-500);
+  }
+
+  &--75 {
+    fill: url(#star-gradient-75);
+  }
+
+  &--50 {
+    fill: url(#star-gradient-50);
+  }
+
+  &--25 {
+    fill: url(#star-gradient-25);
+  }
+
+  &--empty {
+    fill: var(--color-neutral-200);
+  }
+}
+
+.rating-count {
+  color: var(--color-neutral-500);
+  font-size: 0.875rem;
+}
+
+.star-fragment {
+  position: absolute;
+}

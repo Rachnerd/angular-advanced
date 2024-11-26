@@ -1,0 +1,52 @@
+button[data-loading='true'] {
+  cursor: wait;
+
+  /* Hide button text when loading */
+  > :not(.spinner) {
+    opacity: 0;
+  }
+
+  /* Spinner styles */
+  .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  &.primary {
+    .spinner {
+      border-top-color: var(--button-primary-text);
+      border-right-color: var(--button-primary-text);
+    }
+  }
+
+  &.secondary {
+    .spinner {
+      border-top-color: var(--button-secondary-text);
+      border-right-color: var(--button-secondary-text);
+    }
+  }
+
+  &.outline {
+    .spinner {
+      border-top-color: var(--button-outline-text);
+      border-right-color: var(--button-outline-text);
+    }
+  }
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

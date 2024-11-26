@@ -1,0 +1,89 @@
+header {
+  background-color: var(--template-surface);
+  box-shadow: 0 1px 3px var(--template-shadow);
+  padding: 1rem;
+  border-bottom: 1px solid var(--template-border);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--template-text-primary);
+}
+
+::ng-deep nav {
+  margin-left: 2rem;
+}
+
+::ng-deep nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+::ng-deep nav a {
+  text-decoration: none;
+  color: var(--template-text-secondary);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+::ng-deep nav a:hover {
+  color: var(--template-interactive);
+}
+
+.search-bar {
+  flex-grow: 1;
+  max-width: 500px;
+  margin: 0 2rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--template-border);
+  border-radius: 4px;
+  background-color: var(--template-background);
+  color: var(--template-text-primary);
+}
+
+// .hero {
+//   background-color: var(--template-hero-background);
+//   color: var(--template-hero-text);
+//   text-align: center;
+//   padding: 4rem 1rem;
+// }
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-wrap: wrap;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    margin: 1rem 0 0;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  .search-bar {
+    margin: 1rem 0;
+  }
+}

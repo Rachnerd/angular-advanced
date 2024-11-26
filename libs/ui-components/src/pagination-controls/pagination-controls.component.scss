@@ -1,0 +1,78 @@
+/* Updated controls styles using semantic tokens */
+.controls {
+  border-radius: var(--space-xs);
+  box-shadow: var(--pagination-control-shadow);
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  label {
+    font-size: var(--font-sm);
+    color: var(--pagination-control-label-color);
+    font-weight: var(--font-medium);
+    font-family: var(--font-sans);
+  }
+
+  select {
+    padding: var(--space-xs);
+    border-radius: var(--space-xxs);
+    border: 1px solid var(--pagination-control-border-color);
+    min-width: 120px;
+    background-color: var(--pagination-control-bg);
+    font-family: var(--font-sans);
+    font-size: var(--font-sm);
+    color: var(--color-text-primary);
+
+    /* Custom dropdown arrow for dark mode compatibility */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M2.5 4L6 7.5L9.5 4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 2rem;
+    appearance: none;
+
+    [data-theme='dark'] & {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M2.5 4L6 7.5L9.5 4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--pagination-control-focus-border);
+      box-shadow: var(--pagination-control-focus-shadow);
+    }
+
+    /* Add hover state */
+    &:hover {
+      border-color: var(--pagination-control-focus-border);
+    }
+
+    /* Style for disabled state */
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      background-color: var(--color-neutral-100);
+      [data-theme='dark'] & {
+        background-color: var(--color-neutral-900);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+
+    .control-group {
+      width: 100%;
+
+      select {
+        width: 100%;
+      }
+    }
+  }
+}

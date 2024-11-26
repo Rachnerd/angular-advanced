@@ -1,0 +1,81 @@
+:root {
+  /* Input Base Styles */
+  --input-font-size: 14px;
+  --input-font-weight: 400;
+  --input-transition: all 0.2s ease;
+  --input-padding: 8px 12px;
+  --input-radius: 6px;
+  --input-border-width: 1px;
+  --input-width: 100%;
+
+  /* Label Styles */
+  --input-label-color: var(--color-neutral-700);
+  --input-label-font-size: 14px;
+  --input-label-font-weight: 500;
+  --input-label-margin: 0 0 4px 0;
+
+  /* Input Colors - Light Theme */
+  --input-background: var(--color-neutral-50);
+  --input-border-color: var(--color-neutral-300);
+  --input-text-color: var(--color-neutral-900);
+  --input-placeholder-color: var(--color-neutral-400);
+  --input-error-color: var(--color-error-500);
+
+  /* Focus State */
+  --input-focus-border: var(--color-primary-500);
+  --input-focus-ring: 0 0 0 2px var(--color-primary-100);
+
+  /* Helper Text */
+  --input-helper-font-size: 12px;
+  --input-helper-color: var(--color-neutral-500);
+
+  /* Input wrapper */
+  --input-wrapper-error-box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+  --input-wrapper-hover-border-color: var(--color-primary-400);
+
+  /* Icon Colors */
+  --input-icon-color: var(--color-neutral-500);
+
+  /* Icon */
+  --input-icon-padding: 0 12px;
+
+  [data-theme='dark'] {
+    // ui-input {
+    --input-background: transparent;
+    --input-border-color: var(--color-neutral-700);
+    --input-text-color: var(--color-neutral-100);
+    --input-placeholder-color: var(--color-neutral-500);
+    --input-label-color: var(--color-neutral-300);
+    --input-helper-color: var(--color-neutral-400);
+    --input-focus-border: var(--color-primary-400);
+    --input-focus-ring: 0 0 0 2px var(--color-primary-900);
+    --input-icon-color: var(--color-neutral-400);
+  }
+  //   }
+}
+
+// /* Dark Theme Properties */
+// [data-theme='dark'] {
+//   --input-background: var(--color-neutral-900);
+//   --input-background-hover: var(--color-neutral-800);
+//   --input-border-color: var(--color-neutral-700);
+//   --input-text-color: var(--color-neutral-100);
+//   --input-placeholder-color: var(--color-neutral-500);
+
+//   --input-label-color: var(--color-neutral-300);
+//   --input-helper-color: var(--color-neutral-400);
+
+//   --input-focus-border: var(--color-primary-400);
+//   --input-focus-ring: 0 0 0 2px var(--color-primary-900);
+//   --input-focus-background: var(--color-neutral-800);
+
+//   --input-disabled-background: var(--color-neutral-800);
+//   --input-disabled-border: var(--color-neutral-700);
+//   --input-disabled-text: var(--color-neutral-600);
+
+//   --input-error-ring: 0 0 0 2px rgba(239, 68, 68, 0.2);
+//   --input-error-background: rgba(239, 68, 68, 0.1);
+
+//   --input-icon-color: var(--color-neutral-400);
+// }
+// /* Dark mode styles */

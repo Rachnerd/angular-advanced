@@ -1,0 +1,41 @@
+$grid-width-default: 312px;
+
+:host {
+  display: block;
+}
+
+.grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--grid-item-width, $grid-width-default), 1fr)
+  );
+  gap: 24px;
+  margin: 0 auto;
+  padding: 16px;
+  justify-items: center; /* centers items within their grid cells */
+}
+
+.grid-container > * {
+  height: 200px;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--grid-item-width, $grid-width-default);
+  margin: 0 auto;
+}
+
+@media (min-width: 1320px) {
+  .grid-container > * {
+    margin: 0 auto;
+  }
+}
+
+/* Center single items on mobile */
+@media (max-width: 656px) {
+  .grid-container {
+    justify-items: center;
+  }
+}

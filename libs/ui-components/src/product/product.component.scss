@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+.limited {
+  --product-card-badge-color: var(--color-secondary-500);
+  --card-border-color: var(--color-secondary-500);
+}
+
+.out-of-stock {
+  --product-card-badge-color: var(--color-neutral-500);
+  --card-border-color: var(--color-neutral-500);
+
+  opacity: 0.6;
+}

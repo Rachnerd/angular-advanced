@@ -1,0 +1,21 @@
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <ng-content select="[logo]"></ng-content>
+    </div>
+    <nav>
+      <ng-content select="[slot=navigation]"></ng-content>
+    </nav>
+    <div class="actions">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+  </div>
+</header>
+
+<!-- <section class="hero">
+  <ng-content select="[hero]"></ng-content>
+</section> -->
+
+<section class="main-content">
+  <ng-content select="[main]"></ng-content>
+</section>

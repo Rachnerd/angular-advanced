@@ -1,0 +1,41 @@
+:root {
+  --button-font-weight: 500;
+  --button-font-size: var(--font-md);
+  --button-transition: background-color 0.2s;
+  --button-padding: var(--space-xs) var(--space-md);
+  --button-radius: var(--radius-md);
+  --button-border: 1px solid transparent;
+  --button-cursor: pointer;
+  --button-width: 100%;
+
+  /* Button Colors */
+  --button-primary-background: var(--color-primary-600);
+  --button-primary-background-hover: var(--color-primary-700);
+  --button-primary-text: white;
+
+  --button-secondary-background: var(--color-secondary-600);
+  --button-secondary-background-hover: var(--color-secondary-700);
+  --button-secondary-text: white;
+
+  --button-outline-background: transparent;
+  --button-outline-background-hover: var(--color-neutral-50);
+  --button-outline-text: var(--color-neutral-700);
+  --button-outline-border: 1px solid var(--color-neutral-300);
+
+  /* Disabled State Colors */
+  --button-disabled-background: var(--color-neutral-200);
+  --button-disabled-text: var(--color-neutral-400);
+  --button-disabled-border: var(--color-neutral-300);
+  --button-disabled-opacity: 0.7;
+
+  /* Dark Theme */
+  [data-theme='dark'] {
+    --button-primary-background: var(--color-primary-500);
+    --button-primary-background-hover: var(--color-primary-600);
+
+    --button-secondary-background: var(--color-secondary-500);
+    --button-secondary-background-hover: var(--color-secondary-600);
+
+    --button-outline-text: var(--color-neutral-200);
+  }
+}

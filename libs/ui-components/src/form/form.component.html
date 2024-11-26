@@ -1,0 +1,17 @@
+<form
+  [formGroup]="formGroup()"
+  (ngSubmit)="onSubmit()"
+  class="form-container"
+  [class.form-loading]="loading()"
+  [attr.data-size]="size()"
+>
+  <div class="form-content">
+    <ng-content></ng-content>
+  </div>
+
+  @if (showActions()) {
+    <div class="form-actions" [class.form-actions-sticky]="stickyActions()">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+  }
+</form>

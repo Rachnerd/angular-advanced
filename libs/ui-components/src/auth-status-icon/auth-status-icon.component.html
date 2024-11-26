@@ -1,0 +1,30 @@
+<svg width="24" height="24">
+  @if (isAuthenticated()) {
+    <use href="#user-logged-in" />
+  } @else {
+    <use href="#user-logged-out" />
+  }
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
+  <!-- Logged In Icon -->
+  <symbol id="user-logged-in" viewBox="0 0 24 24" class="icon">
+    <circle cx="12" cy="8" r="4" fill="currentColor" />
+    <path
+      d="M4 20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20Z"
+      fill="currentColor"
+    />
+    <circle cx="19" cy="5" r="3" fill="#22c55e" />
+  </symbol>
+
+  <!-- Logged Out Icon -->
+  <symbol id="user-logged-out" viewBox="0 0 24 24" class="icon">
+    <circle cx="12" cy="8" r="4" fill="currentColor" opacity="0.5" />
+    <path
+      d="M4 20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20Z"
+      fill="currentColor"
+      opacity="0.5"
+    />
+    <circle cx="19" cy="5" r="3" fill="#ef4444" />
+  </symbol>
+</svg>

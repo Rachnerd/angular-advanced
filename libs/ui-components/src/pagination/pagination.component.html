@@ -1,0 +1,21 @@
+<div class="pagination">
+  <button
+    (click)="pageChange.emit('prev')"
+    [disabled]="!hasPrevPage()"
+    aria-label="Previous page"
+  >
+    Previous
+  </button>
+
+  <span class="page-info">
+    Page {{ currentPage() }} of {{ totalPages() }}
+  </span>
+
+  <button
+    (click)="pageChange.emit('next')"
+    [disabled]="!hasNextPage()"
+    aria-label="Next page"
+  >
+    Next
+  </button>
+</div>

@@ -1,0 +1,13 @@
+<button
+  [type]="type()"
+  [disabled]="disabled()"
+  [attr.aria-disabled]="disabled() || loading()"
+  [class]="this.variant()"
+  [attr.data-disabled-message]="disabledMessage()"
+  [attr.data-loading]="loading()"
+>
+  <span class="spinner"></span>
+  <div [class.invisible]="loading()">
+    <ng-content></ng-content>
+  </div>
+</button>

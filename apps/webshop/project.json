@@ -22,7 +22,11 @@
             "input": "apps/webshop/public"
           }
         ],
-        "styles": ["apps/webshop/src/styles.scss"],
+
+        "styles": [
+          "apps/webshop/src/styles.scss",
+          "libs/design-system/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {

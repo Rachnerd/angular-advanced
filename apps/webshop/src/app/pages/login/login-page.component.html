@@ -1,0 +1,37 @@
+<ui-form [formGroup]="form" (submitForm)="login()" [loading]="loading()">
+  <ui-input
+    label="Username"
+    formControlName="username"
+    [hasError]="username.touched && username.errors !== null"
+    [errorMessage]="
+      username.errors?.['required']
+        ? 'Username is required.'
+        : username.errors?.['minlength']
+          ? 'Username must at least be 4 characters long.'
+          : undefined
+    "
+  ></ui-input>
+
+  <ui-input
+    label="Password"
+    type="password"
+    formControlName="password"
+    [hasError]="password.touched && password.errors !== null"
+    [errorMessage]="
+      password.errors?.['required']
+        ? 'Password is required.'
+        : password.errors?.['minlength']
+          ? 'Password must at least be 6 characters long.'
+          : undefined
+    "
+  ></ui-input>
+
+  <ui-button
+    actions
+    type="submit"
+    [disabled]="username.touched && password.touched && form.invalid"
+    [loading]="loading()"
+    >Login</ui-button
+  >
+  <ui-button actions type="button" variant="outline">Forgot password</ui-button>
+</ui-form>

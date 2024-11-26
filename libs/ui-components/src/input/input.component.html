@@ -1,0 +1,50 @@
+<div
+  class="input-container"
+  [class.error]="hasError()"
+  [class.disabled]="disabled"
+>
+  @if (label()) {
+    <label [for]="id()" class="label">
+      {{ label() }}
+
+      @if (required()) {
+        <span class="required">*</span>
+      }
+    </label>
+  }
+
+  <div class="input-wrapper" [class.focused]="isFocused">
+    @if (leadingIcon()) {
+      <div class="leading-icon">
+        <ng-content select="[leadingIcon]"></ng-content>
+      </div>
+    }
+
+    <input
+      #input
+      [id]="id()"
+      [type]="type()"
+      [placeholder]="placeholder()"
+      [value]="value"
+      [disabled]="disabled"
+      [required]="required()"
+      (input)="onInputChange($event)"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      class="input-field"
+    />
+
+    @if (trailingIcon()) {
+      <div class="trailing-icon">
+        <ng-content select="[trailingIcon]"></ng-content>
+      </div>
+    }
+  </div>
+
+  @if (hint() && !hasError()) {
+    <div class="hint">{{ hint() }}</div>
+  }
+  @if (hasError()) {
+    <div class="error-message">{{ errorMessage() }}</div>
+  }
+</div>

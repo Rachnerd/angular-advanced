@@ -1,0 +1,18 @@
+:root {
+  // Form Variables
+  --form-gap: var(--space-md);
+  --form-padding: var(--space-md);
+  --form-radius: var(--radius-lg);
+  --form-background-color: var(--color-neutral-50);
+  --form-border-color: var(--color-neutral-200);
+  --form-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  // Size variations
+  --form-padding-sm: var(--space-4, 1rem);
+  --form-padding-lg: var(--space-8, 2rem);
+
+  [data-theme='dark'] {
+    --form-background-color: transparent;
+    --form-border-color: var(--color-neutral-800);
+  }
+}

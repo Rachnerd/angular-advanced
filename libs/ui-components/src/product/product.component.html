@@ -1,0 +1,33 @@
+<ui-product-card [product]="product()" [class]="product().type">
+  <!-- Choose a badge -->
+  @switch (product().type) {
+    @case ('limited') {
+      <ui-badge variant="secondary">Limited!</ui-badge>
+    }
+    @case ('out-of-stock') {
+      <ui-badge variant="neutral">Out of Stock!</ui-badge>
+    }
+  }
+
+  <!-- Choose a button -->
+  @switch (product().type) {
+    @case ('default') {
+      <ui-button footer (click)="addToCart.emit(product())"
+        >Add to Cart</ui-button
+      >
+    }
+    @case ('limited') {
+      <ui-button footer variant="secondary" (click)="addToCart.emit(product())"
+        >Add to Cart</ui-button
+      >
+    }
+    @case ('out-of-stock') {
+      <ui-button
+        footer
+        [disabled]="true"
+        disabledMessage="Better luck next time!"
+        >Add to Cart</ui-button
+      >
+    }
+  }
+</ui-product-card>

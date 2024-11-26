@@ -1,0 +1,17 @@
+:root {
+  --pagination-control-shadow: 0 2px 4px rgba(var(--color-neutral-900), 0.1);
+  --pagination-control-label-color: var(--color-neutral-600);
+  --pagination-control-border-color: var(--color-neutral-200);
+  --pagination-control-bg: var(--color-neutral-50);
+  --pagination-control-focus-border: var(--color-primary-500);
+  --pagination-control-focus-shadow: 0 0 0 1px var(--color-primary-500);
+}
+
+[data-theme='dark'] {
+  --pagination-control-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --pagination-control-label-color: var(--color-neutral-400);
+  --pagination-control-border-color: var(--color-neutral-700);
+  --pagination-control-bg: var(--color-neutral-800);
+  --pagination-control-focus-border: var(--color-primary-400);
+  --pagination-control-focus-shadow: 0 0 0 1px var(--color-primary-400);
+}

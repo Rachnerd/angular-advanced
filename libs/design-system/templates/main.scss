@@ -1,0 +1,24 @@
+:root {
+  --template-background: var(--color-neutral-50);
+  --template-surface: white;
+  --template-text-primary: var(--color-neutral-900);
+  --template-text-secondary: var(--color-neutral-700);
+  --template-border: var(--color-neutral-200);
+  --template-interactive: var(--color-primary-600);
+  --template-interactive-hover: var(--color-primary-700);
+  --template-hero-background: var(--color-primary-600);
+  --template-hero-text: white;
+  --template-button-primary: var(--color-secondary-600);
+  --template-button-primary-hover: var(--color-secondary-700);
+  --template-shadow: rgba(0, 0, 0, 0.1);
+
+  [data-theme='dark'] {
+    --template-background: var(--color-dark-mode);
+    --template-surface: var(--color-neutral-800);
+    --template-text-primary: var(--color-neutral-50);
+    --template-text-secondary: var(--color-neutral-300);
+    --template-border: var(--color-neutral-700);
+    --template-interactive: var(--color-primary-400);
+    --template-interactive-hover: var(--color-primary-500);
+  }
+}

@@ -1,0 +1,39 @@
+<div class="controls">
+  <div class="control-group">
+    <label for="sort">Sort By</label>
+    <select
+      id="sort"
+      [ngModel]="currentSort()"
+      (ngModelChange)="sortChange.emit($event)"
+    >
+      <option *ngFor="let option of sortOptions()" [value]="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+  </div>
+
+  <div class="control-group">
+    <label for="order">Order</label>
+    <select
+      id="order"
+      [ngModel]="currentOrder()"
+      (ngModelChange)="orderChange.emit($event)"
+    >
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+  </div>
+
+  <div class="control-group">
+    <label for="pageSize">Items per page</label>
+    <select
+      id="pageSize"
+      [ngModel]="currentPageSize()"
+      (ngModelChange)="emitPageSize($event)"
+    >
+      <option *ngFor="let size of pageSizes()" [value]="size">
+        {{ size }} items
+      </option>
+    </select>
+  </div>
+</div>

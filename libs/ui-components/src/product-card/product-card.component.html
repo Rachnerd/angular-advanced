@@ -1,0 +1,22 @@
+<ui-card>
+  <section class="product">
+    @if (hasBadge()) {
+      <div class="badge-container">
+        <ng-content select="ui-badge"></ng-content>
+      </div>
+    }
+    <div class="image">
+      <ui-thumbnail
+        [src]="product().image"
+        [alt]="product().title"
+      ></ui-thumbnail>
+    </div>
+    <span class="title">{{ product().title }}</span>
+    <ui-rating [rating]="4.5" [count]="128"></ui-rating>
+    <p class="description">
+      {{ product().description }}
+    </p>
+    <div class="price">{{ product().price | currency }}</div>
+    <ng-content select="[footer]"></ng-content>
+  </section>
+</ui-card>
