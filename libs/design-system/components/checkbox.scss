@@ -1,0 +1,26 @@
+:root {
+  --checkbox-border: var(--color-neutral-300);
+  --checkbox-border-hover: var(--color-primary-400);
+  --checkbox-bg: var(--color-neutral-50);
+  --checkbox-bg-checked: var(--color-primary-500);
+  --checkbox-bg-hover: var(--color-primary-50);
+  --checkbox-check-color: var(--color-neutral-50);
+  --checkbox-label-color: var(--color-neutral-700);
+  --checkbox-disabled-bg: var(--color-neutral-100);
+  --checkbox-disabled-border: var(--color-neutral-200);
+  --checkbox-focus-ring: var(--color-primary-200);
+}
+
+/* Dark theme */
+[data-theme='dark'] {
+  --checkbox-border: var(--color-neutral-600);
+  --checkbox-border-hover: var(--color-primary-400);
+  --checkbox-bg: var(--color-neutral-800);
+  --checkbox-bg-checked: var(--color-primary-400);
+  --checkbox-bg-hover: var(--color-neutral-700);
+  --checkbox-check-color: var(--color-neutral-900);
+  --checkbox-label-color: var(--color-neutral-200);
+  --checkbox-disabled-bg: var(--color-neutral-900);
+  --checkbox-disabled-border: var(--color-neutral-700);
+  --checkbox-focus-ring: var(--color-primary-700);
+}
