@@ -1,20 +1,20 @@
-@forward 'themes/blue.scss';
-// @forward 'themes/green.scss';
-// @forward 'themes/pink.scss';
-// @forward 'themes/red.scss';
-@forward 'tokens/space';
-@forward 'tokens/text';
-@forward 'tokens/border';
-@forward 'tokens/body';
-@forward 'components/button';
-@forward 'components/input';
-@forward 'components/form';
-@forward 'components/card';
-@forward 'components/pagination';
-@forward 'components/pagination-controls';
-@forward 'components/checkbox';
-@forward 'templates/main';
-@forward 'classes/heading';
+@forward './themes/blue.scss';
+// @forward './themes/green.scss';
+// @forward './themes/pink.scss';
+// @forward './themes/red.scss';
+@forward './tokens/space';
+@forward './tokens/text';
+@forward './tokens/border';
+@forward './tokens/body';
+@forward './components/button';
+@forward './components/input';
+@forward './components/form';
+@forward './components/card';
+@forward './components/pagination';
+@forward './components/pagination-controls';
+@forward './components/product-card';
+@forward './templates/main';
+@forward './classes/heading';
 
 :root {
   /* Reset & Base Styles */

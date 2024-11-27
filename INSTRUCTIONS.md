@@ -65,6 +65,8 @@ Do you like HTML and SCSS?
 
 - Create a checkbox component that is conform the Design System standards.
   - Creates stories for each interesting state.
+  - Make sure dark mode is supported properly.
+  - Make sure it is accessible.
 - Add support for the checkbox in the form component.
   - Create a new form story that includes checkboxes.
 - Update the login page in the webshop so it has a "Remember me" checkbox that decides if the session is stored in session storage.

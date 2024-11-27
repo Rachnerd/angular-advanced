@@ -26,6 +26,7 @@
   object-fit: contain;
   transition: transform 0.3s ease;
   aspect-ratio: auto;
+  padding: var(--space-md)
 }
 
 .thumbnail:hover img {

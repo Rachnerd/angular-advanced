@@ -3,6 +3,12 @@
   overflow: hidden;
 }
 
+/* Override product card and card colors. */
+.default {
+  --product-card-badge-color: var(--color-primary-500);
+  --card-border-color: var(--color-primary-500);
+}
+
 .limited {
   --product-card-badge-color: var(--color-secondary-500);
   --card-border-color: var(--color-secondary-500);
@@ -11,6 +17,5 @@
 .out-of-stock {
   --product-card-badge-color: var(--color-neutral-500);
   --card-border-color: var(--color-neutral-500);
-
   opacity: 0.6;
 }

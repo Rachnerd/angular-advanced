@@ -1,10 +1,9 @@
-@forward 'styles/disabled-message';
-@forward 'styles/disabled';
-@forward 'styles/loading';
-@forward 'styles/variants';
+@forward './styles/disabled';
+@forward './styles/loading';
+@forward './styles/variants';
 
 button {
-  display: block;
+  //display: block;
   position: relative;
   padding: var(--button-padding);
   border-radius: var(--button-radius);
