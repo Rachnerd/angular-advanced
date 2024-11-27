@@ -9,6 +9,7 @@ import {
 import { ButtonComponent } from '@angular-advanced/ui-components/button/button.component';
 import { InputComponent } from '@angular-advanced/ui-components/input/input.component';
 import { FormComponent } from '@angular-advanced/ui-components/form/form.component';
+import { CheckboxComponent } from '@angular-advanced/ui-components/checkbox/checkbox.component';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -21,6 +22,7 @@ import { Router } from '@angular/router';
     InputComponent,
     FormComponent,
     ReactiveFormsModule,
+    CheckboxComponent,
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
@@ -36,9 +38,14 @@ export class LoginPageComponent {
     Validators.minLength(6),
   ]);
 
+  protected rememberMe = new FormControl(false, {
+    nonNullable: true,
+  });
+
   protected form = new FormGroup({
     username: this.username,
     password: this.password,
+    rememberMe: this.rememberMe,
   });
 
   protected loading = signal(false);
@@ -47,10 +54,11 @@ export class LoginPageComponent {
   private router = inject(Router);
 
   login() {
-    const { password, username } = this.form.value;
+    const { password, username, rememberMe = false } = this.form.value;
+
     if (password && username) {
       this.loading.set(true);
-      this.auth.login().subscribe({
+      this.auth.login(rememberMe).subscribe({
         next: () => this.router.navigate(['']),
         error: (e) => console.error(e),
       });

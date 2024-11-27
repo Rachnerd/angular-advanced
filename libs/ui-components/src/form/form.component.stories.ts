@@ -3,13 +3,14 @@ import { FormComponent } from './form.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
 import { FormBuilder } from '@angular/forms';
+import { CheckboxComponent } from '../checkbox/checkbox.component';
 
 const meta: Meta<FormComponent> = {
   component: FormComponent,
   title: 'Atoms/Form',
   decorators: [
     moduleMetadata({
-      imports: [InputComponent, ButtonComponent],
+      imports: [InputComponent, ButtonComponent, CheckboxComponent],
     }),
   ],
 };
@@ -128,6 +129,24 @@ export const Sticky: Story = {
       <ui-input formControlName="username" label="Username"></ui-input>
       <ui-input formControlName="username" label="Username"></ui-input>
       <ui-input formControlName="username" label="Username"></ui-input>
+      <ui-button actions>Continue</ui-button>
+    </ui-form>`,
+    props: {
+      formGroup: new FormBuilder().group({
+        username: [''],
+      }),
+    },
+  }),
+};
+
+export const FormWithCheckbox: Story = {
+  args: {},
+  render: () => ({
+    /*html*/
+    template: `
+    <ui-form [formGroup]="formGroup">
+      <ui-input formControlName="username" label="Username"></ui-input>
+      <ui-checkbox>Are you sure?</ui-checkbox>
       <ui-button actions>Continue</ui-button>
     </ui-form>`,
     props: {

@@ -34,7 +34,7 @@ export class AuthService {
   /**
    * TODO: Real endpoint
    */
-  login(): Observable<User> {
+  login(rememberMe: boolean): Observable<User> {
     return of<User>({
       id: 1,
       email: 'test@gmail.com',
@@ -43,7 +43,9 @@ export class AuthService {
     }).pipe(
       delay(400),
       tap((user) => {
-        sessionStorage.setItem(this.STORAGE_KEY, JSON.stringify(user));
+        if (rememberMe) {
+          sessionStorage.setItem(this.STORAGE_KEY, JSON.stringify(user));
+        }
         this.currentUserSubject.next(user);
       }),
     );

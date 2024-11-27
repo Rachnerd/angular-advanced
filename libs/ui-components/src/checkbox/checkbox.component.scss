@@ -52,11 +52,6 @@
   outline-offset: var(--space-xxs);
 }
 
-.checkbox-wrapper input[type='checkbox']:hover {
-  border-color: var(--checkbox-border-hover);
-  background-color: var(--checkbox-bg-hover);
-}
-
 .checkbox-wrapper input[type='checkbox']:disabled {
   background-color: var(--checkbox-disabled-bg);
   border-color: var(--checkbox-disabled-border);
@@ -83,8 +78,4 @@
   color: var(--color-neutral-600);
   margin-left: calc(var(--space-md) + var(--space-xs));
   margin-top: calc(var(--space-xxs) * -1);
-}
-
-[data-theme='dark'] .checkbox-description {
-  color: var(--color-neutral-400);
 }
