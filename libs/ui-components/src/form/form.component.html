@@ -1,16 +1,14 @@
 <form
   [formGroup]="formGroup()"
   (ngSubmit)="onSubmit()"
-  class="form-container"
-  [class.form-loading]="loading()"
-  [attr.data-size]="size()"
+  [class.loading]="loading()"
 >
-  <div class="form-content">
+  <div class="content">
     <ng-content></ng-content>
   </div>
 
   @if (showActions()) {
-    <div class="form-actions" [class.form-actions-sticky]="stickyActions()">
+    <div class="actions" [class.sticky]="stickyActions()">
       <ng-content select="[actions]"></ng-content>
     </div>
   }

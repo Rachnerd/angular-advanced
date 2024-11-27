@@ -1,6 +1,5 @@
-import { Component, contentChildren, input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { InputComponent } from '../input/input.component';
 
 @Component({
   selector: 'ui-form',
@@ -12,11 +11,8 @@ import { InputComponent } from '../input/input.component';
 export class FormComponent {
   formGroup = input.required<FormGroup>();
   loading = input(false);
-  size = input<'sm' | 'md' | 'lg'>('sm');
   showActions = input(true);
   stickyActions = input(false);
-  inputs = contentChildren(InputComponent);
-
   submitForm = output();
 
   onSubmit(): void {
