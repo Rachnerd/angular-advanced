@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     './addons/theme-switcher/register.tsx', // Add your plugin
+    '@storybook/addon-a11y',
   ],
   framework: {
     name: '@storybook/angular',
