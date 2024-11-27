@@ -1,0 +1,36 @@
+:root {
+  /* Product Card Specific Tokens */
+  --product-card-max-width: 312px;
+  --product-card-spacing: var(--space-xs);
+
+  /* Typography */
+  --product-card-title-size: var(--font-2xl);
+  --product-card-title-color: var(--color-neutral-900);
+  --product-card-title-weight: var(--font-semibold);
+  --product-card-title-line-height: var(--leading-normal);
+  --product-card-title-lines: 2;
+
+  --product-card-price-size: var(--font-2xl);
+  --product-card-price-weight: var(--font-bold);
+  --product-card-price-color: var(--color-neutral-900);
+
+  --product-card-description-size: var(--font-sm);
+  --product-card-description-color: var(--color-neutral-600);
+  --product-card-description-line-height: var(--leading-normal);
+  --product-card-description-lines: 3;
+
+  /* Badge */
+  --product-card-badge-spacing: var(--space-md);
+}
+[data-theme="dark"] {
+  --product-card-border-color: var(--color-neutral-800);
+
+  /* Typography */
+  --product-card-title-color: var(--color-neutral-50);
+  --product-card-price-color: var(--color-neutral-50);
+  --product-card-description-color: var(--color-neutral-400);
+
+  /* Badge */
+  --product-card-badge-bg: var(--color-secondary-400);
+  --product-card-badge-text: var(--color-neutral-900);
+}

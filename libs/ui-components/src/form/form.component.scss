@@ -1,9 +1,8 @@
-// form.component.scss
 :host {
   display: block;
 }
 
-.form-container {
+form {
   background-color: var(--form-background-color);
   border: 1px solid var(--form-border-color);
   border-radius: var(--form-radius);
@@ -11,20 +10,24 @@
   width: 100%;
   position: relative;
 
-  &.form-loading {
+  &.loading {
     opacity: 0.7;
     pointer-events: none;
   }
 }
 
-.form-content {
+.content,
+.actions {
+  padding: var(--form-padding-sm);
+}
+.content {
   display: flex;
   flex-direction: column;
   gap: var(--form-gap);
   padding: var(--form-padding);
 }
 
-.form-actions {
+.actions {
   display: flex;
   flex-direction: column;
   gap: var(--form-gap);
@@ -33,24 +36,9 @@
   border-bottom-left-radius: var(--form-radius);
   border-bottom-right-radius: var(--form-radius);
 
-  &.form-actions-sticky {
+  &.sticky {
     position: sticky;
     bottom: 0;
     z-index: 10;
-  }
-}
-
-// Size variations
-.form-container[data-size='sm'] {
-  .form-content,
-  .form-actions {
-    padding: var(--form-padding-sm);
-  }
-}
-
-.form-container[data-size='lg'] {
-  .form-content,
-  .form-actions {
-    padding: var(--form-padding-lg);
   }
 }
