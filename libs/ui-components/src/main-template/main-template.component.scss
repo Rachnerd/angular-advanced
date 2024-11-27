@@ -61,13 +61,6 @@ header {
   color: var(--template-text-primary);
 }
 
-// .hero {
-//   background-color: var(--template-hero-background);
-//   color: var(--template-hero-text);
-//   text-align: center;
-//   padding: 4rem 1rem;
-// }
-
 @media (max-width: 768px) {
   .header-content {
     flex-wrap: wrap;
