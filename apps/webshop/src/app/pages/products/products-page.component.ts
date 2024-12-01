@@ -53,11 +53,8 @@ export class ProductsPageComponent {
   }
 
   private fetchProducts() {
-    return this.http.get<ApiPaginatedResponse<ApiProduct>>(
-      `http://localhost:3001/products`,
-      {
-        params: createHttpParams(this.queryParams()),
-      },
-    );
+    return this.http.get<ApiPaginatedResponse<ApiProduct>>(`/api/products`, {
+      params: createHttpParams(this.queryParams()),
+    });
   }
 }

@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MainTemplateComponent } from '@angular-advanced/ui-components/main-template/main-template.component';
 import { DarkModeToggleComponent } from '@angular-advanced/ui-components/dark-mode-toggle/dark-mode-toggle.component';
-import { AuthStatusIconComponent } from '@angular-advanced/ui-components/auth-status-icon/auth-status-icon.component';
-import { AuthService } from './auth/auth.service';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { AuthService, AuthStatusIconComponent } from '@angular-advanced/auth';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -13,6 +12,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     MainTemplateComponent,
     DarkModeToggleComponent,
     AuthStatusIconComponent,
+    AsyncPipe,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +20,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  auth = inject(AuthService);
-  isAuthenticated = toSignal(this.auth.currentUser$);
+  protected auth = inject(AuthService);
+
+  logout() {
+    this.auth.logout().subscribe({
+      next: () => {
+        location.reload();
+      },
+    });
+  }
 }
