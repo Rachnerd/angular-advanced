@@ -1,15 +1,12 @@
 .pagination {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: var(--space-md);
-  padding: 0 var(--space-lg);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
-@media (max-width: 768px) {
-  .pagination {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-lg);
-  }
+
+app-products-grid {
+  --grid-justify-items: center;
 }

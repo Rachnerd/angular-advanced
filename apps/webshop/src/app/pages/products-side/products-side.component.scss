@@ -1,0 +1,12 @@
+ui-pagination-controls {
+  margin-bottom: var(--space-lg);
+}
+
+.h2 {
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-xs);
+
+  @media (max-width: 768px) {
+    padding-left: var(--space-xl);
+  }
+}

@@ -1,0 +1,9 @@
+<main class="main-content">
+  <ng-content select="[main]"></ng-content>
+</main>
+<aside class="sidebar" [class.collapsed]="!sidebar()">
+  <button id="sidebar-toggle" class="sidebar-toggle" (click)="toggleSideBar()">
+    ☰
+  </button>
+  <ng-content select="[sidebar]"></ng-content>
+</aside>

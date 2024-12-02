@@ -1,9 +1,15 @@
+:host {
+  display: block;
+}
+
 .controls {
   border-radius: var(--space-xs);
-  box-shadow: var(--pagination-control-shadow);
   display: flex;
   gap: var(--space-lg);
   flex-wrap: wrap;
+  > * {
+    flex: 1;
+  }
 }
 
 .control-group {
@@ -57,20 +63,6 @@
       background-color: var(--color-neutral-100);
       [data-theme='dark'] & {
         background-color: var(--color-neutral-900);
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .controls {
-    flex-direction: column;
-
-    .control-group {
-      width: 100%;
-
-      select {
-        width: 100%;
       }
     }
   }

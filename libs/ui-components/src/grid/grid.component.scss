@@ -9,22 +9,10 @@ $grid-width-default: 312px;
   width: 100%;
   grid-template-columns: repeat(
     auto-fit,
-      minmax(var(--grid-item-width, $grid-width-default), 1fr)
+    minmax(var(--grid-item-width, $grid-width-default), 1fr)
   );
-  gap: 24px;
-  margin: 0 auto;
-  padding: 16px;
-  justify-items: center;
-
-  > * {
-    height: 200px;
-    background: #e2e8f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--grid-item-width, $grid-width-default);
-    margin: 0 auto;
-  }
+  gap: var(--grid-gap, var(--space-md));
+  justify-items: var(--grid-justify-items, inherit);
 
   @media (max-width: 656px) {
     justify-items: center;

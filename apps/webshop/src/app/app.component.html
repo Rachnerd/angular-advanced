@@ -1,8 +1,9 @@
-<ui-main-template>
+<ui-header>
   <section logo>Logo</section>
   <nav slot="navigation">
     <ul>
       <li><a routerLink="">Products</a></li>
+      <li><a routerLink="products-side">Products Side</a></li>
     </ul>
   </nav>
   <section actions>
@@ -19,7 +20,5 @@
 
     <ui-dark-mode-toggle></ui-dark-mode-toggle>
   </section>
-  <section main>
-    <router-outlet></router-outlet>
-  </section>
-</ui-main-template>
+</ui-header>
+<router-outlet></router-outlet>

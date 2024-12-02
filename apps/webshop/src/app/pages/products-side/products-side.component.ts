@@ -1,41 +1,41 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import {
-  MainTemplateComponent,
   PaginationComponent,
   PaginationControlsComponent,
+  SidebarTemplateComponent,
 } from '@angular-advanced/ui-components';
-
-import { createHttpParams } from '../../shared/http-params.util';
+import { HttpClient } from '@angular/common/http';
 import type {
-  ApiProduct,
   ApiPaginatedResponse,
   ApiPaginationQuery,
+  ApiProduct,
 } from '@angular-advanced/server-types';
+import { createHttpParams } from '../../shared/http-params.util';
 import { ProductsGridComponent } from '../../products/grid/products-grid.component';
 
 @Component({
-  selector: 'app-products-page',
+  selector: 'app-products-side-page',
   standalone: true,
   imports: [
     CommonModule,
+    SidebarTemplateComponent,
+    ProductsGridComponent,
+    PaginationControlsComponent,
     PaginationComponent,
     PaginationControlsComponent,
-    MainTemplateComponent,
-    ProductsGridComponent,
   ],
-  templateUrl: './products-page.component.html',
-  styleUrl: './products-page.component.scss',
+  templateUrl: './products-side.component.html',
+  styleUrl: './products-side.component.scss',
 })
-export class ProductsPageComponent {
-  http = inject(HttpClient);
+export class ProductsSidePageComponent {
+  private http = inject(HttpClient);
 
   productsResponse = signal<ApiPaginatedResponse<ApiProduct> | undefined>(
     undefined,
   );
 
-  protected queryParams = signal<ApiPaginationQuery>({
+  queryParams = signal<ApiPaginationQuery>({
     page: 1,
     limit: 3,
     sort: 'id',

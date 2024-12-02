@@ -6,6 +6,8 @@ export * from './form/form.component';
 export * from './grid/grid.component';
 export * from './input/input.component';
 export * from './main-template/main-template.component';
+export * from './sidebar-template/sidebar-template.component';
+export * from './header/header.component';
 export * from './pagination/pagination.component';
 export * from './pagination-controls/pagination-controls.component';
 export * from './product/product.component';

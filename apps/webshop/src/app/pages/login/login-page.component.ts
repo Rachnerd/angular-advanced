@@ -10,6 +10,7 @@ import {
   ButtonComponent,
   FormComponent,
   InputComponent,
+  MainTemplateComponent,
 } from '@angular-advanced/ui-components';
 import { Router } from '@angular/router';
 import { AuthService } from '@angular-advanced/auth';
@@ -24,6 +25,7 @@ import { firstValueFrom } from 'rxjs';
     InputComponent,
     FormComponent,
     ReactiveFormsModule,
+    MainTemplateComponent,
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',

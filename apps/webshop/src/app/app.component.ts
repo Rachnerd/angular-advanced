@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
   DarkModeToggleComponent,
-  MainTemplateComponent,
+  HeaderComponent,
 } from '@angular-advanced/ui-components';
 import { AuthService, AuthStatusIconComponent } from '@angular-advanced/auth';
 import { AsyncPipe } from '@angular/common';
@@ -11,9 +11,9 @@ import { AsyncPipe } from '@angular/common';
   standalone: true,
   imports: [
     RouterModule,
-    MainTemplateComponent,
     DarkModeToggleComponent,
     AuthStatusIconComponent,
+    HeaderComponent,
     AsyncPipe,
   ],
   selector: 'app-root',

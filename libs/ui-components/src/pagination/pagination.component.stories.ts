@@ -19,3 +19,23 @@ export const Primary: Story = {
     totalPages: 10,
   },
 };
+
+export const SmallContainer: Story = {
+  args: {
+    currentPage: 1,
+    hasNextPage: true,
+    hasPrevPage: false,
+    totalPages: 10,
+  },
+  render: ({ totalPages, currentPage, hasPrevPage, hasNextPage }) => ({
+    template: `
+<style>
+ui-pagination {
+width: 100px;
+}
+</style>
+<ui-pagination [currentPage]="${currentPage}" [hasNextPage]="${hasNextPage}" [hasPrevPage]="${hasPrevPage}" [totalPages]="${totalPages}">
+</ui-pagination>
+    `,
+  }),
+};
