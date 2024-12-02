@@ -2,7 +2,7 @@
   <ui-input
     label="Username"
     formControlName="username"
-    [hasError]="username.touched && username.errors !== null"
+    [hasError]="!username.untouched && username.errors !== null"
     [errorMessage]="
       username.errors?.['required']
         ? 'Username is required.'
@@ -16,7 +16,7 @@
     label="Password"
     type="password"
     formControlName="password"
-    [hasError]="password.touched && password.errors !== null"
+    [hasError]="!password.untouched && password.errors !== null"
     [errorMessage]="
       password.errors?.['required']
         ? 'Password is required.'
@@ -29,7 +29,7 @@
   <ui-button
     actions
     type="submit"
-    [disabled]="username.touched && password.touched && form.invalid"
+    [disabled]="!username.untouched && !password.untouched && form.invalid"
     [loading]="loading()"
     >Login</ui-button
   >

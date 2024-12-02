@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'ui-auth-status-icon',
+  selector: 'auth-status-icon',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './auth-status-icon.component.html',

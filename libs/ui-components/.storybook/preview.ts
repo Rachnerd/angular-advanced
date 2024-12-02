@@ -30,6 +30,11 @@ const preview: Preview = {
         defaultValue: false,
       },
     },
+    options: {
+      storySort: {
+        order: ['Atoms', 'Molecules', 'Organisms', 'Templates'],
+      },
+    },
   },
 };
 

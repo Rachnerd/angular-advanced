@@ -6,15 +6,15 @@
     </ul>
   </nav>
   <section actions>
-    @if (isAuthenticated() === undefined) {
+    @if ((auth.isAuthenticated$ | async) === false) {
       <a class="auth-link" routerLink="login">
-        <ui-auth-status-icon [isAuthenticated]="false"></ui-auth-status-icon>
+        <auth-status-icon [isAuthenticated]="false"></auth-status-icon>
       </a>
     } @else {
-      <ui-auth-status-icon
+      <auth-status-icon
         [isAuthenticated]="true"
-        (click)="auth.logout()"
-      ></ui-auth-status-icon>
+        (click)="logout()"
+      ></auth-status-icon>
     }
 
     <ui-dark-mode-toggle></ui-dark-mode-toggle>

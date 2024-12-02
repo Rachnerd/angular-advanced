@@ -1,6 +1,8 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { PRODUCT_DATA } from '../data/product.data';
 import { ApiProduct } from '@angular-advanced/server-types';
+import { checkRole } from '../auth/check-role.pre-hook-handler';
+import { authenticate } from '../auth/auth.pre-hook-handler';
 
 interface RouteParams {
   id: number;
@@ -139,7 +141,13 @@ function paginateProducts<T extends { id: number }>(
 export default async function (fastify: FastifyInstance) {
   fastify.get<{ Querystring: PaginationQuery }>(
     '/products',
-    { schema: getProductsSchema },
+    {
+      schema: getProductsSchema,
+      preHandler: [
+        // authenticate,
+        // checkRole(['admin']),
+      ],
+    },
     async (
       request: FastifyRequest<{ Querystring: PaginationQuery }>,
     ): Promise<PaginatedResponse<ApiProduct>> => {

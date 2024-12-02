@@ -3,7 +3,7 @@ import { AuthStatusIconComponent } from './auth-status-icon.component';
 
 const meta: Meta<AuthStatusIconComponent> = {
   component: AuthStatusIconComponent,
-  title: 'Features/AuthStatusIcon',
+  title: 'Auth Lib/StatusIcon',
 };
 export default meta;
 type Story = StoryObj<AuthStatusIconComponent>;
