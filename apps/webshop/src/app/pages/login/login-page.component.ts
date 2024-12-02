@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -6,9 +6,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ButtonComponent } from '@angular-advanced/ui-components/button/button.component';
-import { InputComponent } from '@angular-advanced/ui-components/input/input.component';
-import { FormComponent } from '@angular-advanced/ui-components/form/form.component';
+import {
+  ButtonComponent,
+  FormComponent,
+  InputComponent,
+} from '@angular-advanced/ui-components';
 import { Router } from '@angular/router';
 import { AuthService } from '@angular-advanced/auth';
 import { firstValueFrom } from 'rxjs';
@@ -26,7 +28,7 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
   protected username = new FormControl('test@example.com', [
     Validators.required,
     Validators.minLength(4),

@@ -5,7 +5,9 @@
   "scripts": {
     "components": "nx run ui-components:storybook",
     "webshop": "nx serve webshop",
-    "server": "nx serve fastify-api"
+    "server": "nx serve fastify-api",
+    "lint": "npx nx run-many --all --parallel --targets=lint",
+    "build": "npx nx run-many --all --parallel --targets=build"
   },
   "private": true,
   "dependencies": {

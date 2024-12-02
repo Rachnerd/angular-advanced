@@ -18,7 +18,7 @@
       "@angular-advanced/auth": ["libs/auth/src/index.ts"],
       "@angular-advanced/server-types": ["libs/server-types/src/index.ts"],
       "@angular-advanced/storage": ["libs/storage/src/index.ts"],
-      "@angular-advanced/ui-components/*": ["libs/ui-components/src/*"]
+      "@angular-advanced/ui-components": ["libs/ui-components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

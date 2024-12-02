@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MainTemplateComponent } from '@angular-advanced/ui-components/main-template/main-template.component';
-import { DarkModeToggleComponent } from '@angular-advanced/ui-components/dark-mode-toggle/dark-mode-toggle.component';
+import {
+  DarkModeToggleComponent,
+  MainTemplateComponent,
+} from '@angular-advanced/ui-components';
 import { AuthService, AuthStatusIconComponent } from '@angular-advanced/auth';
 import { AsyncPipe } from '@angular/common';
 

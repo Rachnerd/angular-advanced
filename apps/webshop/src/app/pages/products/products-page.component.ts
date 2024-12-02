@@ -1,10 +1,13 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ProductComponent } from '@angular-advanced/ui-components/product/product.component';
-import { GridComponent } from '@angular-advanced/ui-components/grid/grid.component';
-import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
-import { PaginationComponent } from '@angular-advanced/ui-components/pagination/pagination.component';
+import {
+  GridComponent,
+  PaginationComponent,
+  PaginationControlsComponent,
+  ProductComponent,
+} from '@angular-advanced/ui-components';
+
 import { createHttpParams } from '../../shared/http-params.util';
 import type {
   ApiProduct,
