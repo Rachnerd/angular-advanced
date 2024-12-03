@@ -1,5 +1,8 @@
 <ui-grid>
   @for (product of products(); track product.id) {
-    <ui-product [product]="product"></ui-product>
+    <ui-product
+      [product]="product"
+      (addToCart)="addToCart(product)"
+    ></ui-product>
   }
 </ui-grid>

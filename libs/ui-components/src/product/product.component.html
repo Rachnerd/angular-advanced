@@ -12,12 +12,10 @@
   <!-- Choose a button -->
   @switch (product().type) {
     @case ('default') {
-      <ui-button footer (click)="addToCart.emit(product())"
-        >Add to Cart</ui-button
-      >
+      <ui-button footer (click)="addToCart.emit()">Add to Cart</ui-button>
     }
     @case ('limited') {
-      <ui-button footer variant="secondary" (click)="addToCart.emit(product())"
+      <ui-button footer variant="secondary" (click)="addToCart.emit()"
         >Add to Cart</ui-button
       >
     }

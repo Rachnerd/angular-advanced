@@ -7,6 +7,12 @@
     </ul>
   </nav>
   <section actions>
+    @if ((userService.user$ | async)?.role === 'user') {
+      <a class="auth-link" routerLink="cart">
+        <ui-cart-icon [count]="cartCount() ?? 0"></ui-cart-icon>
+      </a>
+    }
+
     @if ((auth.isAuthenticated$ | async) === false) {
       <a class="auth-link" routerLink="login">
         <auth-status-icon [isAuthenticated]="false"></auth-status-icon>

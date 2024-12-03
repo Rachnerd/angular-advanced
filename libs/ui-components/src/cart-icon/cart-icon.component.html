@@ -1,0 +1,26 @@
+<div class="cart-container">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="cart-icon">
+    <!-- Cart body -->
+    <path
+      d="M6 19c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"
+      fill="currentColor"
+    />
+    <path
+      d="M17 19c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"
+      fill="currentColor"
+    />
+    <path
+      d="M17.1 8.5l3.5 7H6.3l3.5-7h7.3zM4 4h2l.6 3h14l-4 8H7L4 4z"
+      fill="currentColor"
+    />
+    <!-- Cart handle -->
+    <path
+      d="M3 4h3l4 8"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+  </svg>
+  <div class="cart-badge" [attr.data-count]="count()">{{ count() }}</div>
+</div>

@@ -13,6 +13,7 @@ export interface ApiCart {
 export interface ApiCartProduct {
   product: ApiProduct;
   quantity: number;
+  total: number;
 }
 
 export interface ApiCartProducts {

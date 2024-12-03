@@ -12,6 +12,7 @@ type Story = StoryObj<ProductComponent>;
 
 const PRODUCT_DATA: ReturnType<ProductComponent['product']> = {
   ...PRODUCT_CARD_MOCK,
+  id: '1',
   type: 'default',
 };
 

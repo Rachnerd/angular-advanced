@@ -9,7 +9,8 @@ import { BadgeComponent } from '../badge/badge.component';
 
 type ProductType = 'default' | 'limited' | 'out-of-stock';
 
-interface Product extends ProductCard {
+export interface Product extends ProductCard {
+  id: string;
   type: ProductType;
   description: string;
 }
@@ -29,5 +30,5 @@ interface Product extends ProductCard {
 export class ProductComponent {
   product = input.required<Product>();
 
-  addToCart = output<Product>();
+  addToCart = output<void>();
 }

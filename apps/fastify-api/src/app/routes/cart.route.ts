@@ -45,7 +45,6 @@ export default async function (fastify: FastifyInstance) {
     ): Promise<ApiCartProducts> => {
       const userId = request.user.id;
       let cart = carts.get(userId);
-      console.log(cart);
       if (!cart) {
         cart = { userId, entries: [] };
         carts.set(userId, cart);
@@ -57,6 +56,7 @@ export default async function (fastify: FastifyInstance) {
         return {
           product,
           quantity: item.quantity,
+          total: (Math.round(product.price * 100) * item.quantity) / 100,
         };
       });
 

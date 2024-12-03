@@ -1,0 +1,19 @@
+<ui-sidebar-template>
+  <section main>
+    @if (cart(); as cart) {
+      @for (entry of cart.products; track entry.product.id) {
+        <ui-cart-entry
+          [entry]="entry"
+          [product]="entry.product"
+          (remove)="remove(entry.product)"
+          (add)="update(entry.product, entry.quantity + $event)"
+        ></ui-cart-entry>
+      }
+    }
+  </section>
+  <section sidebar>
+    @if (cart(); as cart) {
+      <span>Total: {{ cart.total | currency }}</span>
+    }
+  </section>
+</ui-sidebar-template>

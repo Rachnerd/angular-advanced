@@ -14,3 +14,5 @@ export * from './product/product.component';
 export * from './product-card/product-card.component';
 export * from './rating/rating.component';
 export * from './thumbnail/thumbnail.component';
+export * from './cart-entry/cart-entry.component';
+export * from './cart-icon/cart-icon.component';

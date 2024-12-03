@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-error-500);
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Hide badge when items = 0 */
+.cart-badge[data-count='0'] {
+  display: none;
+}
