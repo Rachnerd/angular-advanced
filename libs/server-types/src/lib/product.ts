@@ -4,7 +4,7 @@ interface ApiRating {
 }
 
 export interface ApiProduct {
-  id: number;
+  id: string;
   title: string;
   price: number;
   description: string;

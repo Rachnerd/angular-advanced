@@ -2,7 +2,7 @@ import type { ApiProduct } from '@angular-advanced/server-types';
 
 export const PRODUCT_DATA: ApiProduct[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
     price: 109.95,
     description:
@@ -13,7 +13,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Mens Casual Premium Slim Fit T-Shirts ',
     price: 22.3,
     description:
@@ -25,7 +25,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'limited',
   },
   {
-    id: 3,
+    id: '3',
     title: 'Mens Cotton Jacket',
     price: 55.99,
     description:
@@ -36,7 +36,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 4,
+    id: '4',
     title: 'Mens Casual Slim Fit',
     price: 15.99,
     description:
@@ -47,7 +47,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'out-of-stock',
   },
   {
-    id: 5,
+    id: '5',
     title:
       "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
     price: 695,
@@ -59,7 +59,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 6,
+    id: '6',
     title: 'Solid Gold Petite Micropave ',
     price: 168,
     description:
@@ -70,7 +70,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 7,
+    id: '7',
     title: 'White Gold Plated Princess',
     price: 9.99,
     description:
@@ -81,7 +81,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 8,
+    id: '8',
     title: 'Pierced Owl Rose Gold Plated Stainless Steel Double',
     price: 10.99,
     description:
@@ -92,29 +92,29 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 9,
+    id: '9',
     title: 'WD 2TB Elements Portable External Hard Drive - USB 3.0 ',
     price: 64,
     description:
-      'USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system',
+      "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user's hardware configuration and operating system",
     category: 'electronics',
     image: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
     rating: { rate: 3.3, count: 203 },
     type: 'default',
   },
   {
-    id: 10,
+    id: '10',
     title: 'SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
     price: 109,
     description:
-      'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)',
+      'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5" hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)',
     category: 'electronics',
     image: 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
     rating: { rate: 2.9, count: 470 },
     type: 'default',
   },
   {
-    id: 11,
+    id: '11',
     title:
       'Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5',
     price: 109,
@@ -126,7 +126,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 12,
+    id: '12',
     title:
       'WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive',
     price: 114,
@@ -138,7 +138,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 13,
+    id: '13',
     title: 'Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin',
     price: 599,
     description:
@@ -149,7 +149,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 14,
+    id: '14',
     title:
       'Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ',
     price: 999.99,
@@ -161,7 +161,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 15,
+    id: '15',
     title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
     price: 56.99,
     description:
@@ -172,7 +172,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 16,
+    id: '16',
     title:
       "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
     price: 29.95,
@@ -184,7 +184,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 17,
+    id: '17',
     title: 'Rain Jacket Women Windbreaker Striped Climbing Raincoats',
     price: 39.99,
     description:
@@ -195,7 +195,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 18,
+    id: '18',
     title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
     price: 9.85,
     description:
@@ -206,7 +206,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 19,
+    id: '19',
     title: "Opna Women's Short Sleeve Moisture",
     price: 7.95,
     description:
@@ -217,7 +217,7 @@ export const PRODUCT_DATA: ApiProduct[] = [
     type: 'default',
   },
   {
-    id: 20,
+    id: '20',
     title: 'DANVOUY Womens T Shirt Casual Cotton Short',
     price: 12.99,
     description:

@@ -17,8 +17,11 @@ import {
 const refreshTokens = new Set<string>();
 
 const users = new Map<string, ApiUser>([
-  ['admin', { password: 'admin123', name: 'Admin', role: 'admin' }],
-  ['test@example.com', { password: 'password', name: 'John', role: 'user' }],
+  ['admin', { password: 'admin123', name: 'Admin', role: 'admin', id: '1' }],
+  [
+    'test@example.com',
+    { password: 'password', name: 'John', role: 'user', id: '2' },
+  ],
 ]);
 
 function generateTokens(payload: object) {
@@ -48,6 +51,7 @@ export default async function (fastify: FastifyInstance) {
       }
 
       const { accessToken, refreshToken } = generateTokens({
+        id: user.id,
         username,
         role: user.role,
       });
@@ -58,6 +62,7 @@ export default async function (fastify: FastifyInstance) {
         tokenType: 'Bearer',
         expiresIn: ACCESS_TOKEN_EXPIRES_IN,
         user: {
+          id: user.id,
           name: user.name,
           role: user.role,
         },
@@ -87,6 +92,7 @@ export default async function (fastify: FastifyInstance) {
 
         // Generate new tokens
         const tokens = generateTokens({
+          id: decoded.id,
           username: decoded.username,
           role: decoded.role,
         });

@@ -1,11 +1,9 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { PRODUCT_DATA } from '../data/product.data';
 import { ApiProduct } from '@angular-advanced/server-types';
-import { checkRole } from '../auth/check-role.pre-hook-handler';
-import { authenticate } from '../auth/auth.pre-hook-handler';
 
 interface RouteParams {
-  id: number;
+  id: string;
 }
 
 // Schema for product validation
@@ -99,7 +97,7 @@ interface PaginatedResponse<T> {
 }
 
 // Pagination helper function
-function paginateProducts<T extends { id: number }>(
+function paginateProducts<T extends { id: string }>(
   items: T[],
   page = 1,
   limit = 10,
