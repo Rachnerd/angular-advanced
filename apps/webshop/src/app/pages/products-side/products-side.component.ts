@@ -13,6 +13,7 @@ import type {
 } from '@angular-advanced/server-types';
 import { createHttpParams } from '../../shared/http-params.util';
 import { ProductsGridComponent } from '../../products/grid/products-grid.component';
+import { ProductService } from '../../products/product.service';
 
 @Component({
   selector: 'app-products-side-page',
@@ -29,35 +30,11 @@ import { ProductsGridComponent } from '../../products/grid/products-grid.compone
   styleUrl: './products-side.component.scss',
 })
 export class ProductsSidePageComponent {
-  private http = inject(HttpClient);
-
-  productsResponse = signal<ApiPaginatedResponse<ApiProduct> | undefined>(
-    undefined,
-  );
-
-  queryParams = signal<ApiPaginationQuery>({
-    page: 1,
-    limit: 3,
-    sort: 'id',
-    order: 'asc',
-  });
-
-  constructor() {
-    effect(() => {
-      this.fetchProducts().subscribe((res) => this.productsResponse.set(res));
-    });
-  }
+  private productService = inject(ProductService);
+  protected productsResponse = this.productService.productsResponse;
+  protected queryParams = this.productService.queryParams;
 
   updateParams(params: Partial<ApiPaginationQuery>) {
-    this.queryParams.update((current) => ({
-      ...current,
-      ...params,
-    }));
-  }
-
-  private fetchProducts() {
-    return this.http.get<ApiPaginatedResponse<ApiProduct>>(`/api/products`, {
-      params: createHttpParams(this.queryParams()),
-    });
+    this.productService.updateParams(params);
   }
 }
