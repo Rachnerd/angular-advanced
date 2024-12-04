@@ -22,12 +22,12 @@
             "input": "apps/webshop/public"
           }
         ],
-
         "styles": [
           "apps/webshop/src/styles.scss",
           "libs/design-system/styles.scss"
         ],
-        "scripts": []
+        "scripts": [],
+        "statsJson": true
       },
       "configurations": {
         "production": {

@@ -5,9 +5,12 @@
   "scripts": {
     "components": "nx run ui-components:storybook",
     "webshop": "nx serve webshop",
+    "webshop:compodoc": "compodoc -p apps/webshop/tsconfig.json -s",
+    "webshop:inspect": "nx build webshop && esbuild-visualizer --open --metadata ./dist/apps/webshop/stats.json",
     "server": "nx serve fastify-api",
     "lint": "npx nx run-many --all --parallel --targets=lint",
-    "build": "npx nx run-many --all --parallel --targets=build"
+    "build": "npx nx run-many --all --parallel --targets=build",
+    "graph": "nx graph"
   },
   "private": true,
   "dependencies": {
@@ -64,12 +67,13 @@
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
-    "@types/jsonwebtoken": "^9.0.7",
     "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "18.16.9",
     "@typescript-eslint/utils": "^8.0.0",
     "angular-eslint": "^18.3.0",
     "esbuild": "^0.19.2",
+    "esbuild-visualizer": "^0.6.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-playwright": "^1.6.2",
