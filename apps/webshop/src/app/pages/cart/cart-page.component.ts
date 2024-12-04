@@ -1,12 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  CartEntryComponent,
-  Product,
-  SidebarTemplateComponent,
-} from '@angular-advanced/ui-components';
 import { CartService } from '../../cart/cart.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { SidebarTemplateComponent } from '@angular-advanced/ui-components/sidebar-template/sidebar-template.component';
+import { CartEntryComponent } from '@angular-advanced/ui-components/cart-entry/cart-entry.component';
+import type { Product } from '@angular-advanced/ui-components/product/product.component';
 
 @Component({
   selector: 'app-cart-page',

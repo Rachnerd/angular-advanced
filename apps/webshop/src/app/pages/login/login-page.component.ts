@@ -6,15 +6,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import {
-  ButtonComponent,
-  FormComponent,
-  InputComponent,
-  MainTemplateComponent,
-} from '@angular-advanced/ui-components';
 import { Router } from '@angular/router';
 import { AuthService } from '@angular-advanced/auth';
 import { firstValueFrom } from 'rxjs';
+import { ButtonComponent } from '@angular-advanced/ui-components/button/button.component';
+import { InputComponent } from '@angular-advanced/ui-components/input/input.component';
+import { FormComponent } from '@angular-advanced/ui-components/form/form.component';
+import { MainTemplateComponent } from '@angular-advanced/ui-components/main-template/main-template.component';
 
 @Component({
   selector: 'app-login-page',

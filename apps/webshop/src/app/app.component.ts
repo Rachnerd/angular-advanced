@@ -3,14 +3,8 @@ import {
   Component,
   inject,
   OnInit,
-  signal,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {
-  CartIconComponent,
-  DarkModeToggleComponent,
-  HeaderComponent,
-} from '@angular-advanced/ui-components';
 import {
   AuthService,
   AuthStatusIconComponent,
@@ -20,6 +14,9 @@ import { AsyncPipe } from '@angular/common';
 import { CartService } from './cart/cart.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
+import { DarkModeToggleComponent } from '@angular-advanced/ui-components/dark-mode-toggle/dark-mode-toggle.component';
+import { HeaderComponent } from '@angular-advanced/ui-components/header/header.component';
+import { CartIconComponent } from '@angular-advanced/ui-components/cart-icon/cart-icon.component';
 
 @Component({
   standalone: true,

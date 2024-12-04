@@ -1,14 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  MainTemplateComponent,
-  PaginationComponent,
-  PaginationControlsComponent,
-} from '@angular-advanced/ui-components';
-
 import type { ApiPaginationQuery } from '@angular-advanced/server-types';
 import { ProductsGridComponent } from '../../products/grid/products-grid.component';
 import { ProductService } from '../../products/product.service';
+import { PaginationComponent } from '@angular-advanced/ui-components/pagination/pagination.component';
+import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
+import { MainTemplateComponent } from '@angular-advanced/ui-components/main-template/main-template.component';
 
 @Component({
   selector: 'app-products-page',

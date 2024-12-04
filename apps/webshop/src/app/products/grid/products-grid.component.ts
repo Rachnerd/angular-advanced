@@ -1,11 +1,9 @@
 import { Component, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  GridComponent,
-  ProductComponent,
-} from '@angular-advanced/ui-components';
 import { ApiProduct } from '@angular-advanced/server-types';
 import { CartService } from '../../cart/cart.service';
+import { GridComponent } from '@angular-advanced/ui-components/grid/grid.component';
+import { ProductComponent } from '@angular-advanced/ui-components/product/product.component';
 
 @Component({
   selector: 'app-products-grid',

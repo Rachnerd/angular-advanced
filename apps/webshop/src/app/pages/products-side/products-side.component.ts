@@ -1,19 +1,11 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  PaginationComponent,
-  PaginationControlsComponent,
-  SidebarTemplateComponent,
-} from '@angular-advanced/ui-components';
-import { HttpClient } from '@angular/common/http';
-import type {
-  ApiPaginatedResponse,
-  ApiPaginationQuery,
-  ApiProduct,
-} from '@angular-advanced/server-types';
-import { createHttpParams } from '../../shared/http-params.util';
+import type { ApiPaginationQuery } from '@angular-advanced/server-types';
 import { ProductsGridComponent } from '../../products/grid/products-grid.component';
 import { ProductService } from '../../products/product.service';
+import { SidebarTemplateComponent } from '@angular-advanced/ui-components/sidebar-template/sidebar-template.component';
+import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
+import { PaginationComponent } from '@angular-advanced/ui-components/pagination/pagination.component';
 
 @Component({
   selector: 'app-products-side-page',
