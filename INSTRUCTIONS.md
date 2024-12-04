@@ -80,3 +80,12 @@ Do you like HTML and SCSS?
   - Add the route in app.component.html so you can reach it.
 - Implement your template so the products are listed in the "main" slot and pagination/pagination-controls in the sidebar.
   - You need to update pagination and pagination-controls so they fit in a small space.
+
+### Service improvement
+CartService efficiency:
+- Count (homepage).
+- Local updates instead of API call after post/put/delete.
+
+### Smart component
+- Smart components for pagination + controls:
+  - URL query params client should be leading for search config.
