@@ -3,7 +3,7 @@
 @forward './styles/variants';
 
 button {
-  //display: block;
+  display: block;
   position: relative;
   padding: var(--button-padding);
   border-radius: var(--button-radius);
