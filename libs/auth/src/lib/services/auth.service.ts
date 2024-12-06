@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { EMPTY, Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import type { User } from '../models/auth.model';
 import { TokenService } from './token.service';
@@ -52,7 +52,7 @@ export class AuthService {
         .post<void>('/api/auth/logout', { refreshToken })
         .pipe(catchError(this.handleError));
     }
-    return EMPTY;
+    return of(undefined);
   }
 
   private handleError(error: HttpErrorResponse) {

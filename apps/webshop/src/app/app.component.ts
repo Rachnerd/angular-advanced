@@ -13,7 +13,7 @@ import {
 import { AsyncPipe } from '@angular/common';
 import { CartService } from './cart/cart.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
+import { first, map } from 'rxjs';
 import { DarkModeToggleComponent } from '@angular-advanced/ui-components/dark-mode-toggle/dark-mode-toggle.component';
 import { HeaderComponent } from '@angular-advanced/ui-components/header/header.component';
 import { CartIconComponent } from '@angular-advanced/ui-components/cart-icon/cart-icon.component';
@@ -42,7 +42,11 @@ export class AppComponent implements OnInit {
   );
 
   ngOnInit() {
-    this.cartService.get();
+    this.auth.isAuthenticated$.pipe(first()).subscribe((isAuthenticated) => {
+      if (isAuthenticated) {
+        this.cartService.get();
+      }
+    });
   }
 
   logout() {

@@ -1,8 +1,11 @@
-import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpInterceptorFn,
+  HttpErrorResponse,
+  HttpStatusCode,
+} from '@angular/common/http';
 import { inject } from '@angular/core';
-import { catchError, EMPTY, throwError } from 'rxjs';
+import { switchMap, throwError } from 'rxjs';
 import { TokenService } from '../services/token.service';
-import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 export type ApiUrl<T extends string = string> = `/api/${T}`;
@@ -14,18 +17,13 @@ const AUTH_WHITELIST: ApiUrl[] = [
 
 interface AuthInterceptorConfig {
   whitelist: ApiUrl[];
-  routes: {
-    login: string[];
-    forbidden: string[];
-  };
 }
 
 export const authInterceptor =
-  ({ routes, whitelist }: AuthInterceptorConfig): HttpInterceptorFn =>
+  ({ whitelist }: AuthInterceptorConfig): HttpInterceptorFn =>
   (request, next) => {
     const tokenService = inject(TokenService);
     const authService = inject(AuthService);
-    const router = inject(Router);
 
     // Skip authentication for unprotected URLs
     if (
@@ -40,10 +38,21 @@ export const authInterceptor =
     const token = tokenService.getAccessToken();
 
     if (!token || tokenService.isExpired(token)) {
-      authService.logout().subscribe({
-        complete: () => router.navigate(routes.login),
-      });
-      return EMPTY;
+      return authService.logout().pipe(
+        switchMap(() => {
+          return throwError(
+            () =>
+              new HttpErrorResponse({
+                error: new Error(
+                  'Auth Interceptor: Tried to perform protected API call without authentication',
+                ),
+                status: HttpStatusCode.Unauthorized,
+                statusText: 'Unauthorized',
+                url: request.urlWithParams,
+              }),
+          );
+        }),
+      );
     }
 
     const authenticatedRequest = request.clone({
@@ -52,17 +61,5 @@ export const authInterceptor =
       },
     });
 
-    return next(authenticatedRequest).pipe(
-      catchError((error: unknown) => {
-        if (error instanceof HttpErrorResponse && error.status === 401) {
-          router.navigate(routes.login);
-          return EMPTY;
-        }
-        if (error instanceof HttpErrorResponse && error.status === 403) {
-          router.navigate(routes.forbidden);
-          return EMPTY;
-        }
-        return throwError(() => error);
-      }),
-    );
+    return next(authenticatedRequest);
   };

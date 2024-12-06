@@ -1,15 +1,15 @@
 import { inject } from '@angular/core';
-import { Router, CanActivateFn } from '@angular/router';
+import { CanActivateFn } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../models/auth.model';
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 
 interface RoleGuardData {
   roles: User['role'][];
 }
 
-export const roleGuard: CanActivateFn = async (route, state) => {
-  const router = inject(Router);
+export const roleGuard: CanActivateFn = async (route) => {
   const userService = inject(UserService);
 
   // Get the roles from the route data
@@ -23,8 +23,12 @@ export const roleGuard: CanActivateFn = async (route, state) => {
   const user = await firstValueFrom(userService.user$);
   // First check if the user is authenticated
   if (!user) {
-    router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-    return false;
+    throw new HttpErrorResponse({
+      error: new Error('Tried to access protected route.'),
+      status: HttpStatusCode.Unauthorized,
+      statusText: 'Unauthorized',
+      url: `Client: /${route.url}`,
+    });
   }
 
   // Get user's role from auth service
@@ -34,9 +38,14 @@ export const roleGuard: CanActivateFn = async (route, state) => {
   const hasRequiredRole = roles.includes(role);
 
   if (!hasRequiredRole) {
-    // Redirect to unauthorized page or dashboard
-    router.navigate(['/forbidden']);
-    return false;
+    throw new HttpErrorResponse({
+      error: new Error(
+        `Tried to access protected route without role: ${roles.join(',')}`,
+      ),
+      status: HttpStatusCode.Forbidden,
+      statusText: 'Forbidden',
+      url: `Client: /${route.url}`,
+    });
   }
 
   return true;
