@@ -1,35 +1,35 @@
 import { Route } from '@angular/router';
-import { ProductsPageComponent } from './pages/products/products-page.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
 import { ForbiddenPageComponent } from './pages/forbidden/forbidden.component';
-import { ProductsSidePageComponent } from './pages/products-side/products-side.component';
-import { CartPageComponent } from './pages/cart/cart-page.component';
 import { roleGuard } from '@angular-advanced/auth';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    component: ProductsPageComponent,
-    // canActivate: [roleGuard],
-    // data: {
-    //   roles: ['admin'],
-    // },
+    loadComponent: () =>
+      import('../app/pages/products/products-page.component').then(
+        (m) => m.ProductsPageComponent,
+      ),
   },
   {
     path: 'products-side',
-    component: ProductsSidePageComponent,
-    // canActivate: [roleGuard],
-    // data: {
-    //   roles: ['admin'],
-    // },
+    loadComponent: () =>
+      import('../app/pages/products-side/products-side.component').then(
+        (m) => m.ProductsSidePageComponent,
+      ),
   },
   {
     path: 'login',
-    component: LoginPageComponent,
+    loadComponent: () =>
+      import('../app/pages/login/login-page.component').then(
+        ({ LoginPageComponent }) => LoginPageComponent,
+      ),
   },
   {
     path: 'cart',
-    component: CartPageComponent,
+    loadComponent: () =>
+      import('../app/pages/cart/cart-page.component').then(
+        (m) => m.CartPageComponent,
+      ),
     canActivate: [roleGuard],
     data: {
       roles: ['user', 'admin'],
