@@ -2,7 +2,6 @@ import type { Preview } from '@storybook/angular';
 import '!style-loader!css-loader!sass-loader!../../design-system/styles.scss';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
-import { allModes } from './modes';
 setCompodocJson(docJson);
 
 const preview: Preview = {
@@ -28,12 +27,6 @@ const preview: Preview = {
     options: {
       storySort: {
         order: ['Atoms', 'Molecules', 'Organisms', 'Templates'],
-      },
-    },
-    chromatic: {
-      modes: {
-        Light: allModes.light,
-        Dark: allModes.dark,
       },
     },
   },

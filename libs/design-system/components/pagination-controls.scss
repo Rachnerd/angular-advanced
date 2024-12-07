@@ -15,7 +15,7 @@
   --pagination-control-select-padding-right: 2rem;
 
   // Select Colors
-  --pagination-control-bg: transparent;
+  --pagination-control-bg: white;
   --pagination-control-text: var(--color-text-primary);
   --pagination-control-border-color: var(--color-neutral-200);
   --pagination-control-focus-border: var(--color-primary-500);
@@ -30,6 +30,7 @@
 
 // Dark Theme Overrides
 [data-theme='dark'] {
+  --pagination-control-bg: var(--color-neutral-900);
   --pagination-control-label-color: var(--color-neutral-300);
   --pagination-control-border-color: var(--color-neutral-700);
   --pagination-control-focus-border: var(--color-primary-400);
