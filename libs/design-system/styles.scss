@@ -6,14 +6,23 @@
 @forward './tokens/text';
 @forward './tokens/border';
 @forward './tokens/body';
+@forward './components/badge';
 @forward './components/button';
+@forward './components/cart-entry';
+@forward './components/cart-icon';
+@forward './components/dark-mode-toggle';
+@forward './components/header';
 @forward './components/input';
 @forward './components/form';
 @forward './components/card';
 @forward './components/pagination';
 @forward './components/pagination-controls';
+@forward './components/product';
 @forward './components/product-card';
+@forward './components/rating';
+@forward './components/thumbnail';
 @forward './templates/main';
+@forward './templates/sidebar';
 @forward './classes/heading';
 
 :root {
@@ -27,7 +36,7 @@
   body {
     font-family: var(--font-sans);
     font-size: var(--font-base);
-    font-weight: var(--font-normal);
+    font-weight: var(--font-weight-normal);
     line-height: var(--leading-normal);
     letter-spacing: var(--tracking-normal);
     transition: all 0.2s ease;

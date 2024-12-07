@@ -1,24 +1,7 @@
 button:disabled {
-  cursor: not-allowed;
+  background-color: var(--button-color-disabled-bg);
+  color: var(--button-color-disabled-text);
+  border-color: var(--button-color-disabled-border);
   opacity: var(--button-disabled-opacity);
-
-  &:hover {
-    transform: none;
-  }
-
-  &.primary {
-    background-color: var(--button-disabled-background);
-    color: var(--button-disabled-text);
-  }
-
-  &.secondary {
-    background-color: var(--button-disabled-background);
-    color: var(--button-disabled-text);
-  }
-
-  &.outline {
-    background-color: var(--button-outline-background);
-    border: 1px solid var(--button-disabled-border);
-    color: var(--button-disabled-text);
-  }
+  cursor: not-allowed;
 }

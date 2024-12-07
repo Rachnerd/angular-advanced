@@ -1,20 +1,20 @@
 .rating {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--rating-gap);
 }
 
 .stars {
   display: flex;
-  gap: var(--space-xxs);
+  gap: var(--rating-stars-gap);
 }
 
 .star {
-  width: var(--space-md);
-  height: var(--space-md);
+  width: var(--rating-star-size);
+  height: var(--rating-star-size);
 
   &--filled {
-    fill: var(--color-warning-500);
+    fill: var(--rating-star-filled);
   }
 
   &--75 {
@@ -30,13 +30,13 @@
   }
 
   &--empty {
-    fill: var(--color-neutral-200);
+    fill: var(--rating-star-empty);
   }
 }
 
 .rating-count {
-  color: var(--color-neutral-500);
-  font-size: 0.875rem;
+  color: var(--rating-count-color);
+  font-size: var(--rating-count-size);
 }
 
 .star-fragment {

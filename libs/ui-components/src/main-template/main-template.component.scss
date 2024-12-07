@@ -1,7 +1,7 @@
 .main-content {
-  height: 100vh;
-  max-width: 1200px;
-  padding: var(--space-md);
-  margin: auto;
-  padding-top: var(--space-xl);
+  height: var(--main-content-height);
+  max-width: var(--main-content-max-width);
+  padding: var(--main-content-padding-top) var(--main-content-padding-x)
+    var(--main-content-padding-x);
+  margin: 0 auto;
 }

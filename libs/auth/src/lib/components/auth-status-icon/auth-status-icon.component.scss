@@ -1,6 +1,16 @@
-.icon {
-  position: absolute;
-  width: 0;
+:host {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+icon {
+  width: 24px;
+  height: 24px;
+}
+
+.hidden {
+  display: none;
 }
 
 svg {

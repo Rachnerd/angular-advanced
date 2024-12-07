@@ -1,7 +1,8 @@
 .card {
-  border-radius: var(--card-radius);
   padding: var(--card-padding);
+  border-radius: var(--card-radius);
   border: var(--card-border);
-  overflow: hidden;
   border-color: var(--card-border-color);
+  background-color: var(--card-bg);
+  overflow: hidden;
 }

@@ -1,19 +1,15 @@
 :root {
-  --pagination-color-bg-primary: var(--color-neutral-50);
-  --pagination-color-text-primary: var(--color-neutral-900);
-  --pagination-color-text-secondary: var(--color-neutral-600);
-  --pagination-color-button-bg: var(--color-primary-400);
-  --pagination-color-button-bg-hover: var(--color-primary-700);
-  --pagination-color-button-bg-disabled: var(--color-neutral-300);
-  --pagination-color-button-text: var(--color-neutral-50);
+  /* Layout */
+  --pagination-spacing-gap: var(--space-xs);
+  --pagination-width-info: 100px;
 
-  [data-theme='dark'] {
-    --pagination-color-bg-primary: var(--color-neutral-900);
-    --pagination-color-text-primary: var(--color-neutral-50);
-    --pagination-color-text-secondary: var(--color-neutral-400);
-    --pagination-color-button-bg: var(--color-primary-600);
-    --pagination-color-button-bg-hover: var(--color-primary-400);
-    --pagination-color-button-bg-disabled: var(--color-neutral-700);
-    --pagination-color-button-text: var(--color-neutral-50);
-  }
+  /* Typography */
+  --pagination-font-size: var(--font-sm);
+
+  /* Colors */
+  --pagination-text-color: var(--color-neutral-600, #4b5563);
+}
+
+[data-theme='dark'] {
+  --pagination-text-color: var(--color-neutral-400, #9ca3af);
 }

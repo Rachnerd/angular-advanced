@@ -1,16 +1,38 @@
 :root {
-  --pagination-control-shadow: 0 2px 4px rgba(var(--color-neutral-900), 0.1);
-  --pagination-control-label-color: var(--color-neutral-600);
+  // Pagination Control Base
+  --pagination-control-gap: var(--space-lg);
+  --pagination-control-radius: var(--space-xs);
+  --pagination-control-font-size: var(--font-sm);
+
+  // Label Styles
+  --pagination-control-label-font-weight: var(--font-weight-medium);
+  --pagination-control-label-color: var(--color-neutral-700);
+
+  // Select Control
+  --pagination-control-select-padding: var(--space-xs);
+  --pagination-control-select-radius: var(--space-xxs);
+  --pagination-control-select-min-width: 120px;
+  --pagination-control-select-padding-right: 2rem;
+
+  // Select Colors
+  --pagination-control-bg: transparent;
+  --pagination-control-text: var(--color-text-primary);
   --pagination-control-border-color: var(--color-neutral-200);
-  --pagination-control-bg: var(--color-neutral-50);
   --pagination-control-focus-border: var(--color-primary-500);
-  --pagination-control-focus-shadow: 0 0 0 1px var(--color-primary-500);
+  --pagination-control-focus-shadow: 0 0 0 2px var(--color-primary-100);
+  --pagination-control-disabled-bg: var(--color-neutral-100);
+  --pagination-control-disabled-opacity: 0.7;
+
+  // Arrow Icon Colors
+  --pagination-control-arrow-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M2.5 4L6 7.5L9.5 4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --pagination-control-arrow-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M2.5 4L6 7.5L9.5 4' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
+// Dark Theme Overrides
 [data-theme='dark'] {
-  --pagination-control-label-color: var(--color-neutral-400);
+  --pagination-control-label-color: var(--color-neutral-300);
   --pagination-control-border-color: var(--color-neutral-700);
-  --pagination-control-bg: var(--color-neutral-800);
   --pagination-control-focus-border: var(--color-primary-400);
-  --pagination-control-focus-shadow: 0 0 0 1px var(--color-primary-400);
+  --pagination-control-focus-shadow: 0 0 0 2px var(--color-primary-900);
+  --pagination-control-disabled-bg: var(--color-neutral-900);
 }

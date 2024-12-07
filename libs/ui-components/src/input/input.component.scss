@@ -1,14 +1,12 @@
 .input-container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  width: var(--input-width);
+  gap: var(--input-spacing-gap);
 
   .label {
     color: var(--input-label-color);
     font-size: var(--input-label-font-size);
     font-weight: var(--input-label-font-weight);
-    margin: var(--input-label-margin);
   }
 
   .required {
@@ -18,24 +16,24 @@
   .input-wrapper {
     display: flex;
     align-items: center;
-    background-color: var(--input-background);
+    background-color: var(--input-background-color);
     border: var(--input-border-width) solid var(--input-border-color);
-    border-radius: var(--input-radius);
-    transition: var(--input-transition);
+    border-radius: var(--input-border-radius);
+    transition: var(--input-transition-duration) var(--input-transition-timing);
 
     &:hover:not(.disabled) {
-      border-color: var(--input-wrapper-hover-border-color);
+      border-color: var(--input-border-color-hover);
     }
 
     &.focused {
-      border-color: var(--input-focus-border);
-      box-shadow: var(--input-focus-ring);
+      border-color: var(--input-border-color-focus);
+      box-shadow: var(--input-shadow-focus);
     }
   }
 
   .input-field {
     flex: 1;
-    padding: var(--input-padding);
+    padding: var(--input-padding-block) var(--input-padding-inline);
     border: none;
     background: none;
     font-size: var(--input-font-size);
@@ -53,7 +51,7 @@
   .trailing-icon {
     display: flex;
     align-items: center;
-    padding: var(--input-icon-padding);
+    padding: 0 var(--input-icon-padding-inline);
     color: var(--input-icon-color);
   }
 
@@ -72,20 +70,20 @@
       border-color: var(--input-error-color);
 
       &.focused {
-        box-shadow: var(--input-wrapper-error-box-shadow);
+        box-shadow: var(--input-shadow-error);
       }
     }
   }
 
   &.disabled {
     .input-wrapper {
-      background-color: var(--color-neutral-100);
-      border-color: var(--color-neutral-200);
+      background-color: var(--input-background-color-disabled);
+      border-color: var(--input-border-color-disabled);
       cursor: not-allowed;
     }
 
     .input-field {
-      color: var(--color-neutral-500);
+      color: var(--input-text-color-disabled);
       cursor: not-allowed;
     }
   }

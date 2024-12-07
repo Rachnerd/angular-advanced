@@ -1,0 +1,39 @@
+:root {
+  /* Base Styles */
+  --badge-font-size: var(--font-sm);
+  --badge-font-weight: var(--font-weight-medium);
+  --badge-line-height: var(--leading-normal);
+
+  /* Layout */
+  --badge-padding-x: var(--space-sm);
+  --badge-padding-y: var(--space-xs);
+  --badge-radius: var(--radius-sm);
+
+  /* Animation */
+  --badge-transition: background-color 0.2s ease;
+
+  /* Light Theme Colors */
+  /* Primary Variant */
+  --badge-color-primary-bg: var(--color-primary-600);
+  --badge-color-primary-text: var(--color-neutral-50);
+
+  /* Secondary Variant */
+  --badge-color-secondary-bg: var(--color-secondary-600);
+  --badge-color-secondary-text: var(--color-neutral-50);
+
+  /* Neutral Variant */
+  --badge-color-neutral-bg: var(--color-neutral-600);
+  --badge-color-neutral-text: var(--color-neutral-50);
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  /* Primary Variant */
+  --badge-color-primary-bg: var(--color-primary-500);
+
+  /* Secondary Variant */
+  --badge-color-secondary-bg: var(--color-secondary-500);
+
+  /* Neutral Variant */
+  --badge-color-neutral-bg: var(--color-neutral-500);
+}

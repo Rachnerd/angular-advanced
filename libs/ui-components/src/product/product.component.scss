@@ -3,19 +3,18 @@
   overflow: hidden;
 }
 
-/* Override product card and card colors. */
 .default {
-  --product-card-badge-color: var(--color-primary-500);
-  --card-border-color: var(--color-primary-500);
+  --product-card-badge-color: var(--product-status-default-color);
+  --card-border-color: var(--product-status-default-color);
 }
 
 .limited {
-  --product-card-badge-color: var(--color-secondary-500);
-  --card-border-color: var(--color-secondary-500);
+  --product-card-badge-color: var(--product-status-limited-color);
+  --card-border-color: var(--product-status-limited-color);
 }
 
 .out-of-stock {
-  --product-card-badge-color: var(--color-neutral-500);
-  --card-border-color: var(--color-neutral-500);
-  opacity: 0.6;
+  --product-card-badge-color: var(--product-status-out-of-stock-color);
+  --card-border-color: var(--product-status-out-of-stock-color);
+  opacity: var(--product-status-out-of-stock-opacity);
 }

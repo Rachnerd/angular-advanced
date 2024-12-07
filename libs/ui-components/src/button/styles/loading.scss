@@ -1,42 +1,44 @@
 button[data-loading='true'] {
-  cursor: wait;
+  cursor: var(--loading-cursor);
 
   /* Hide button text when loading */
-  > :not(.spinner) {
-    opacity: 0;
+  > .invisible {
+    opacity: var(--loading-content-opacity);
   }
 
-  /* Spinner styles */
+  /* Spinner base styles */
   .spinner {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 16px;
-    height: 16px;
-    border: 2px solid transparent;
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    border: var(--spinner-border-width) solid transparent;
     border-radius: 50%;
-    animation: spin 0.6s linear infinite;
+    animation: spin var(--spinner-animation-duration)
+      var(--spinner-animation-timing) infinite;
   }
 
+  /* Spinner variants */
   &.primary {
     .spinner {
-      border-top-color: var(--button-primary-text);
-      border-right-color: var(--button-primary-text);
+      border-top-color: var(--spinner-primary-color);
+      border-right-color: var(--spinner-primary-color);
     }
   }
 
   &.secondary {
     .spinner {
-      border-top-color: var(--button-secondary-text);
-      border-right-color: var(--button-secondary-text);
+      border-top-color: var(--spinner-secondary-color);
+      border-right-color: var(--spinner-secondary-color);
     }
   }
 
   &.outline {
     .spinner {
-      border-top-color: var(--button-outline-text);
-      border-right-color: var(--button-outline-text);
+      border-top-color: var(--spinner-outline-color);
+      border-right-color: var(--spinner-outline-color);
     }
   }
 }

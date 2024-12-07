@@ -5,7 +5,7 @@
 form {
   background-color: var(--form-background-color);
   border: 1px solid var(--form-border-color);
-  border-radius: var(--form-radius);
+  border-radius: var(--form-border-radius);
   box-shadow: var(--form-shadow);
   width: 100%;
   position: relative;
@@ -16,29 +16,25 @@ form {
   }
 }
 
-.content,
-.actions {
-  padding: var(--form-padding-sm);
-}
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--form-gap);
+  gap: var(--form-spacing-gap);
   padding: var(--form-padding);
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  gap: var(--form-gap);
-  background-color: var(--form-background-color);
+  gap: var(--form-spacing-gap);
+  padding: var(--form-padding-small);
   border-top: 1px solid var(--form-border-color);
-  border-bottom-left-radius: var(--form-radius);
-  border-bottom-right-radius: var(--form-radius);
+  border-bottom-left-radius: var(--form-border-radius);
+  border-bottom-right-radius: var(--form-border-radius);
 
   &.sticky {
     position: sticky;
     bottom: 0;
-    z-index: 10;
+    z-index: var(--layer-sticky, 10);
   }
 }

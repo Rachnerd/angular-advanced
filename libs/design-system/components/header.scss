@@ -1,0 +1,37 @@
+:root {
+  /* Layout */
+  --header-padding: var(--space-md);
+  --header-max-width: 1200px;
+  --header-nav-gap: var(--space-xl);
+  --header-nav-margin: var(--space-xl);
+  --header-mobile-margin: var(--space-md);
+
+  /* Typography */
+  --header-logo-font-size: var(--font-xl);
+  --header-nav-font-weight: var(--font-weight-medium);
+
+  /* Animation */
+  --header-transition: 0.2s ease;
+
+  /* Colors - Light Theme */
+  --header-bg: var(--color-neutral-50);
+  --header-logo-color: var(--color-neutral-900);
+  --header-nav-color: var(--color-neutral-600);
+  --header-nav-color-hover: var(--color-primary-600);
+
+  /* Effects */
+  --header-shadow-color: rgba(0, 0, 0, 0.1);
+  --header-shadow: 0 1px 3px var(--header-shadow-color);
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  /* Colors */
+  --header-bg: var(--color-neutral-900);
+  --header-logo-color: var(--color-neutral-50);
+  --header-nav-color: var(--color-neutral-300);
+  --header-nav-color-hover: var(--color-primary-400);
+
+  /* Effects */
+  --header-shadow-color: rgba(0, 0, 0, 0.3);
+}
