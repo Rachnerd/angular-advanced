@@ -31,7 +31,7 @@ export class CartService {
 
   update(id: string, quantity: number): void {
     this.http
-      .put<void>(`/api/cart/products/${id}`, {
+      .patch<void>(`/api/cart/products/${id}`, {
         quantity,
       })
       .subscribe(() => this.get());
