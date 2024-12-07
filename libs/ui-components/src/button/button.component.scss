@@ -1,16 +1,29 @@
-@forward './styles/disabled';
-@forward './styles/loading';
 @forward './styles/variants';
+@forward './styles/loading';
+@forward './styles/disabled';
+
+:host {
+  display: block;
+}
 
 button {
-  display: block;
   position: relative;
-  padding: var(--button-padding);
-  border-radius: var(--button-radius);
-  font-weight: var(--button-font-weight);
+  /* Base Typography */
+  width: 100%;
   font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+
+  /* Layout & Spacing */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--button-radius);
+  border-width: var(--button-border-width);
+  border-style: solid;
+
+  /* Interactive States */
   cursor: var(--button-cursor);
   transition: var(--button-transition);
-  border: var(--button-border);
-  width: var(--button-width);
 }

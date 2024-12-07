@@ -1,18 +1,22 @@
 :root {
-  // Form Variables
-  --form-gap: var(--space-md);
+  /* Base Layout */
+  --form-spacing-gap: var(--space-md);
   --form-padding: var(--space-md);
-  --form-radius: var(--radius-lg);
+  --form-border-radius: var(--radius-lg);
+
+  /* Colors */
   --form-background-color: var(--color-neutral-50);
   --form-border-color: var(--color-neutral-200);
+
+  /* Effects */
   --form-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
-  // Size variations
-  --form-padding-sm: var(--space-4, 1rem);
-  --form-padding-lg: var(--space-8, 2rem);
+  /* Size Variations */
+  --form-padding-small: var(--space-md);
+  --form-padding-large: var(--space-xl);
+}
 
-  [data-theme='dark'] {
-    --form-background-color: transparent;
-    --form-border-color: var(--color-neutral-800);
-  }
+[data-theme='dark'] {
+  --form-background-color: transparent;
+  --form-border-color: var(--color-neutral-800);
 }

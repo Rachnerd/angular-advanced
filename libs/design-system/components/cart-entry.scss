@@ -1,0 +1,68 @@
+:root {
+  /* Color */
+  --cart-entry-bg: white;
+
+  /* Layout */
+  --cart-entry-padding: var(--space-md);
+  --cart-entry-gap: var(--space-lg);
+  --cart-entry-radius: var(--radius-lg);
+
+  /* Border */
+  --cart-entry-border-width: 1px;
+  --cart-entry-border-style: solid;
+  --cart-entry-border-color: var(--color-primary-500);
+  --cart-entry-border: var(--cart-entry-border-width)
+    var(--cart-entry-border-style) var(--cart-entry-border-color);
+
+  /* Image Container */
+  --cart-entry-image-padding: var(--space-sm);
+  --cart-entry-image-width: 120px;
+
+  /* Quantity Control */
+  --cart-entry-quantity-gap: var(--space-xs);
+  --cart-entry-quantity-padding-x: var(--space-sm);
+  --cart-entry-quantity-padding-y: var(--space-2xs);
+  --cart-entry-quantity-radius: var(--radius-md);
+  --cart-entry-quantity-border-width: 2px;
+  --cart-entry-quantity-border-style: solid;
+  --cart-entry-quantity-border-color: var(--color-primary-500);
+  --cart-entry-quantity-border: var(--cart-entry-quantity-border-width)
+    var(--cart-entry-quantity-border-style)
+    var(--cart-entry-quantity-border-color);
+  --cart-entry-quantity-font-size: var(--font-sm);
+
+  /* Typography - Title */
+  --cart-entry-title-font-size: var(--font-xl);
+  --cart-entry-title-font-weight: var(--font-weight-semibold);
+  --cart-entry-title-line-height: var(--leading-normal);
+  --cart-entry-title-color: var(--color-neutral-900);
+  --cart-entry-title-lines: 1;
+
+  /* Typography - Description */
+  --cart-entry-description-font-size: var(--font-sm);
+  --cart-entry-description-line-height: var(--leading-normal);
+  --cart-entry-description-color: var(--color-neutral-600);
+  --cart-entry-description-lines: 2;
+
+  /* Typography - Price */
+  --cart-entry-price-font-size: var(--font-lg);
+  --cart-entry-price-font-weight: var(--font-weight-bold);
+  --cart-entry-price-color: var(--color-neutral-900);
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  /* Color */
+  --cart-entry-bg: var(--color-neutral-900);
+  /* Borders */
+  --cart-entry-border-color: var(--color-primary-400);
+  --cart-entry-quantity-border-color: var(--color-primary-400);
+
+  /* Typography Colors */
+  --cart-entry-title-color: var(--color-neutral-50);
+  --cart-entry-description-color: var(--color-neutral-300);
+  --cart-entry-price-color: var(--color-neutral-50);
+
+  /* Additional States */
+  --cart-entry-review-color: var(--color-neutral-500);
+}

@@ -1,6 +1,16 @@
 :root {
-  --card-radius: var(--space-xs);
+  /* Layout */
   --card-padding: var(--space-lg);
+  --card-radius: var(--radius-md);
+
+  /* Border */
+  --card-border: 2px solid;
   --card-border-color: var(--color-neutral-200);
-  --card-border: 2px solid, var(--card-border-color);
+
+  --card-bg: white;
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  --card-bg: var(--color-neutral-900);
 }

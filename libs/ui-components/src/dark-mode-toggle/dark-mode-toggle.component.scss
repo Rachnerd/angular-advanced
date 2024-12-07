@@ -1,25 +1,43 @@
 .toggle-button {
-  background: none;
+  // Reset defaults
+  background: var(--toggle-background-default);
   border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background-color 0.3s;
+
+  // Layout
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary-700);
+  width: var(--toggle-size);
+  height: var(--toggle-size);
+  border-radius: var(--radius-full);
+
+  // Interaction
+  cursor: pointer;
+  transition: background-color var(--toggle-transition-duration)
+    var(--toggle-transition-timing);
+  color: var(--toggle-icon-color);
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--toggle-background-hover);
+  }
+
+  // Icon styles
+  .sun-icon,
+  .moon-icon {
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+  }
+
+  // Default state (light theme)
+  .sun-icon {
+    display: block;
+  }
+
+  .moon-icon {
+    display: none;
   }
 
   &.dark {
-    color: var(--color-neutral-50);
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-
     .sun-icon {
       display: none;
     }
@@ -28,18 +46,4 @@
       display: block;
     }
   }
-}
-
-.sun-icon,
-.moon-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.sun-icon {
-  display: block;
-}
-
-.moon-icon {
-  display: none;
 }

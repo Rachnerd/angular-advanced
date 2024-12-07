@@ -1,40 +1,42 @@
 :host {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: var(--cart-icon-size);
+  height: var(--cart-icon-size);
   cursor: pointer;
 }
-.cart-container {
-  position: relative;
-  display: inline-block;
-}
 
-.cart-icon {
-  width: 24px;
-  height: 24px;
-}
+.cart {
+  &-container {
+    position: relative;
+    display: inline-block;
+  }
 
-.cart-badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: var(--color-error-500);
-  color: white;
-  border-radius: 50%;
-  min-width: 18px;
-  height: 18px;
-  font-size: 12px;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
+  &-icon {
+    width: var(--cart-icon-size);
+    height: var(--cart-icon-size);
+  }
 
-/* Hide badge when items = 0 */
-.cart-badge[data-count='0'] {
-  display: none;
+  &-badge {
+    position: absolute;
+    top: var(--cart-icon-badge-offset);
+    right: var(--cart-icon-badge-offset);
+    min-width: var(--cart-icon-badge-size);
+    height: var(--cart-icon-badge-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Visual */
+    background-color: var(--cart-icon-badge-bg);
+    color: var(--cart-icon-badge-text);
+    border-radius: 50%;
+
+    /* Typography */
+    font-size: var(--cart-icon-badge-font-size);
+    font-weight: var(--cart-icon-badge-font-weight);
+
+    &[data-count='0'] {
+      display: none;
+    }
+  }
 }

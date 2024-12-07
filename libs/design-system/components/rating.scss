@@ -1,0 +1,17 @@
+:root {
+  // Rating Base Styles
+  --rating-gap: var(--space-xs);
+  --rating-stars-gap: var(--space-xxs);
+  --rating-star-size: var(--space-md);
+
+  // Star Colors
+  --rating-star-filled: var(--color-warning-500);
+  --rating-star-empty: var(--color-neutral-300);
+  --rating-count-color: var(--color-neutral-500);
+  --rating-count-size: var(--font-sm);
+}
+
+[data-theme='dark'] {
+  --rating-star-empty: var(--color-neutral-700);
+  --rating-count-color: var(--color-neutral-400);
+}

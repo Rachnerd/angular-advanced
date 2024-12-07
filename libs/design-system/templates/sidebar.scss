@@ -1,0 +1,35 @@
+:root {
+  // Layout tokens
+  --sidebar-template-width: 250px;
+  --sidebar-template-height: 100vh;
+  --sidebar-template-padding: var(--space-md);
+  --sidebar-template-toggle-size: 1.5rem;
+  --sidebar-template-toggle-offset: -25px;
+  --sidebar-template-transition: transform 0.3s ease;
+
+  // Header offset calculations
+  --sidebar-template-header-height: 70px;
+  --sidebar-template-header-height-mobile: 126px;
+  --sidebar-template-top-offset: calc(
+    var(--sidebar-template-header-height) + var(--space-lg)
+  );
+  --sidebar-template-top-offset-mobile: calc(
+    var(--sidebar-template-header-height-mobile) + var(--space-lg)
+  );
+
+  // Main content
+  --sidebar-template-content-max-width: 1300px;
+  --sidebar-template-content-padding-left: calc(
+    var(--sidebar-template-width) + var(--space-md)
+  );
+  --sidebar-template-content-padding-top: var(--space-xl);
+
+  // Theme tokens - Light mode
+  --sidebar-template-bg: var(--template-surface, white);
+  --sidebar-template-toggle-color: var(--template-text-secondary);
+}
+
+[data-theme='dark'] {
+  --sidebar-template-bg: var(--template-surface, #1f2937);
+  --sidebar-template-toggle-color: var(--template-text-secondary, #d1d5db);
+}

@@ -1,59 +1,54 @@
 header {
-  background-color: var(--template-surface);
-  box-shadow: 0 1px 3px var(--template-shadow);
-  padding: 1rem;
-  border-bottom: 1px solid var(--template-border);
+  background-color: var(--header-bg);
+  box-shadow: var(--header-shadow);
+  padding: var(--header-padding);
   z-index: 10;
   position: relative;
-}
 
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--template-text-primary);
-}
-
-::ng-deep nav {
-  margin-left: 2rem;
-}
-
-::ng-deep nav ul {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-::ng-deep nav a {
-  text-decoration: none;
-  color: var(--template-text-secondary);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-::ng-deep nav a:hover {
-  color: var(--template-interactive);
-}
-
-@media (max-width: 768px) {
   .header-content {
-    flex-wrap: wrap;
+    max-width: var(--header-max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  nav {
-    order: 3;
-    width: 100%;
-    margin: 1rem 0 0;
+  .logo {
+    font-size: var(--header-logo-font-size);
+    font-weight: bold;
+    color: var(--header-logo-color);
   }
 
-  nav ul {
-    justify-content: center;
+  ::ng-deep nav {
+    margin-left: var(--header-nav-margin);
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: var(--header-nav-gap);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--header-nav-color);
+      font-weight: var(--header-nav-font-weight);
+      transition: color var(--header-transition);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-content {
+      flex-wrap: wrap;
+    }
+
+    ::ng-deep nav {
+      order: 3;
+      width: 100%;
+      margin: var(--header-mobile-margin) 0 0;
+
+      ul {
+        justify-content: center;
+      }
+    }
   }
 }

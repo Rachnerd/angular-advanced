@@ -2,9 +2,9 @@
   container-type: inline-size;
   position: relative;
   width: 100%;
-  padding-bottom: 100%;
-  background: white;
-  border-radius: 8px;
+  padding-bottom: var(--thumbnail-aspect-ratio);
+  background: var(--thumbnail-bg);
+  border-radius: var(--thumbnail-radius);
   overflow: hidden;
 }
 
@@ -17,18 +17,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.thumbnail img {
-  position: absolute;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  aspect-ratio: auto;
-  padding: var(--space-md)
-}
+  img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--thumbnail-transition);
+    aspect-ratio: auto;
+    padding: var(--thumbnail-padding);
+  }
 
-.thumbnail:hover img {
-  transform: scale(1.05);
+  &:hover {
+    img {
+      transform: scale(var(--thumbnail-scale));
+    }
+  }
 }

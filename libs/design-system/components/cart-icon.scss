@@ -1,0 +1,22 @@
+:root {
+  /* Icon */
+  --cart-icon-size: var(--space-lg);
+
+  /* Badge Layout */
+  --cart-icon-badge-size: var(--space-sm);
+  --cart-icon-badge-offset: calc(var(--space-2xs) * -1);
+
+  /* Badge Typography */
+  --cart-icon-badge-font-size: var(--font-xs);
+  --cart-icon-badge-font-weight: var(--font-weight-bold);
+
+  /* Badge Colors */
+  --cart-icon-badge-bg: var(--color-error-500);
+  --cart-icon-badge-text: var(--color-neutral-50);
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+  --cart-icon-badge-text: var(--color-neutral-50);
+  --cart-icon-badge-bg: var(--color-error-500);
+}

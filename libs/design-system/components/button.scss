@@ -1,41 +1,79 @@
 :root {
-  --button-font-weight: 500;
-  --button-font-size: var(--font-md);
-  --button-transition: background-color 0.2s;
-  --button-padding: var(--space-xs) var(--space-md);
+  /* Button Base Tokens */
+  --button-font: var(--font-sm);
+  --button-font-weight: var(--font-weight-medium);
+  --button-line-height: var(--leading-normal);
+
+  /* Spacing & Layout */
+  --button-padding-x: var(--space-md);
+  --button-padding-y: var(--space-xs);
   --button-radius: var(--radius-md);
-  --button-border: 1px solid transparent;
+  --button-border-width: 1px;
+
+  /* Interactive States */
+  --button-transition: background-color 0.2s ease;
   --button-cursor: pointer;
-  --button-width: 100%;
 
-  /* Button Colors */
-  --button-primary-background: var(--color-primary-600);
-  --button-primary-background-hover: var(--color-primary-700);
-  --button-primary-text: white;
+  /* Light Theme Colors */
+  /* Primary Variant */
+  --button-color-primary-bg: var(--color-primary-600);
+  --button-color-primary-bg-hover: var(--color-primary-700);
+  --button-color-primary-text: var(--color-neutral-50);
 
-  --button-secondary-background: var(--color-secondary-600);
-  --button-secondary-background-hover: var(--color-secondary-700);
-  --button-secondary-text: white;
+  /* Secondary Variant */
+  --button-color-secondary-bg: var(--color-secondary-600);
+  --button-color-secondary-bg-hover: var(--color-secondary-700);
+  --button-color-secondary-text: var(--color-neutral-50);
 
-  --button-outline-background: transparent;
-  --button-outline-background-hover: var(--color-neutral-50);
-  --button-outline-text: var(--color-neutral-700);
-  --button-outline-border: 1px solid var(--color-neutral-300);
+  /* Outline Variant */
+  --button-color-outline-bg: transparent;
+  --button-color-outline-bg-hover: var(--color-neutral-50);
+  --button-color-outline-text: var(--color-neutral-700);
+  --button-color-outline-border: var(--color-neutral-300);
 
-  /* Disabled State Colors */
-  --button-disabled-background: var(--color-neutral-200);
-  --button-disabled-text: var(--color-neutral-400);
-  --button-disabled-border: var(--color-neutral-300);
+  /* Disabled State */
+  --button-color-disabled-bg: var(--color-neutral-200);
+  --button-color-disabled-text: var(--color-neutral-400);
+  --button-color-disabled-border: var(--color-neutral-300);
   --button-disabled-opacity: 0.7;
+}
 
-  /* Dark Theme */
-  [data-theme='dark'] {
-    --button-primary-background: var(--color-primary-500);
-    --button-primary-background-hover: var(--color-primary-600);
+/* Dark Theme Overrides */
+[data-theme='dark'] {
+  /* Primary Variant */
+  --button-color-primary-bg: var(--color-primary-500);
+  --button-color-primary-bg-hover: var(--color-primary-600);
 
-    --button-secondary-background: var(--color-secondary-500);
-    --button-secondary-background-hover: var(--color-secondary-600);
+  /* Secondary Variant */
+  --button-color-secondary-bg: var(--color-secondary-500);
+  --button-color-secondary-bg-hover: var(--color-secondary-600);
 
-    --button-outline-text: var(--color-neutral-200);
-  }
+  /* Outline Variant */
+  --button-color-outline-text: var(--color-neutral-200);
+  --button-color-outline-border: var(--color-neutral-600);
+
+  /* Disabled State */
+  --button-color-disabled-bg: var(--color-neutral-800);
+  --button-color-disabled-text: var(--color-neutral-600);
+  --button-color-disabled-border: var(--color-neutral-700);
+}
+
+:root {
+  // Spinner Base
+  --spinner: 16px;
+  --spinner-border-width: 2px;
+  --spinner-animation-duration: 0.6s;
+  --spinner-animation-timing: linear;
+
+  // Loading State
+  --loading-cursor: wait;
+  --loading-content-opacity: 0;
+
+  // Spinner Colors
+  --spinner-primary-color: var(--button-primary-text);
+  --spinner-secondary-color: var(--button-secondary-text);
+  --spinner-outline-color: var(--button-outline-text);
+}
+[data-theme='dark'] {
+  --spinner-outline-color: var(--button-outline-text);
 }

@@ -1,0 +1,14 @@
+:root {
+  // Thumbnail Container
+  --thumbnail-aspect-ratio: 100%;
+  --thumbnail-radius: var(--radius-lg);
+  --thumbnail-bg: transparent;
+  --thumbnail-padding: var(--space-md);
+
+  // Thumbnail Animation
+  --thumbnail-transition: transform 0.3s ease;
+  --thumbnail-scale: 1.05;
+}
+
+[data-theme='dark'] {
+}
