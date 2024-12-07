@@ -10,7 +10,9 @@
     "server": "nx serve fastify-api",
     "lint": "npx nx run-many --all --parallel --targets=lint",
     "build": "npx nx run-many --all --parallel --targets=build",
-    "graph": "nx graph"
+    "graph": "nx graph",
+    "build-storybook": "nx run ui-components:build-storybook",
+    "chromatic": "npx chromatic"
   },
   "private": true,
   "dependencies": {
@@ -72,6 +74,7 @@
     "@types/node": "18.16.9",
     "@typescript-eslint/utils": "^8.0.0",
     "angular-eslint": "^18.3.0",
+    "chromatic": "^11.20.0",
     "esbuild": "^0.19.2",
     "esbuild-visualizer": "^0.6.0",
     "eslint": "^9.8.0",

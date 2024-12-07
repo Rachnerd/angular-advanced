@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/angular';
+import '!style-loader!css-loader!sass-loader!../../design-system/styles.scss';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
 setCompodocJson(docJson);

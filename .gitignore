@@ -48,3 +48,5 @@ storybook-static
 
 libs/ui-components/documentation.json
 /documentation
+
+chromatic.sh

@@ -1,0 +1,6 @@
+{
+  "$schema": "https://www.chromatic.com/config-file.schema.json",
+  "projectId": "Design system",
+  "storybookBaseDir": "./libs/ui-components",
+  "storybookBuildDir": "dist/storybook/ui-components"
+}

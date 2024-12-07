@@ -23,8 +23,7 @@
         "configDir": "libs/ui-components/.storybook",
         "browserTarget": "ui-components:build-storybook",
         "compodoc": true,
-        "compodocArgs": ["-e", "json", "-d", "libs/ui-components"],
-        "styles": ["libs/design-system/styles.scss"]
+        "compodocArgs": ["-e", "json", "-d", "libs/ui-components"]
       },
       "configurations": {
         "ci": {
