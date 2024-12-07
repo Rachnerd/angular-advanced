@@ -1,6 +1,7 @@
 import { FastifyInstance, FastifyRequest } from 'fastify';
 import {
   ApiCart,
+  ApiCartProduct,
   ApiCartProducts,
   ApiProduct,
 } from '@angular-advanced/server-types';
@@ -34,6 +35,45 @@ export default async function (fastify: FastifyInstance) {
     },
   );
 
+  const populateCart = (cart: ApiCart): ApiCartProducts => {
+    const cartProducts = cart.entries.map((item) => {
+      const product = products.get(item.productId);
+      if (!product) throw new Error(`Product ${item.productId} not found`);
+      return {
+        product,
+        quantity: item.quantity,
+        total: (Math.round(product.price * 100) * item.quantity) / 100,
+      };
+    });
+    return {
+      ...cart,
+      products: cartProducts,
+      total:
+        cartProducts.reduce((sum, item) => {
+          const itemTotal =
+            Math.round(item.product.price * 100) * item.quantity;
+          return sum + itemTotal;
+        }, 0) / 100,
+    };
+  };
+
+  // Get total price of cart
+  fastify.get(
+    '/cart/total',
+    { preHandler: authenticate },
+    async (request: FastifyRequest) => {
+      const userId = request.user.id;
+      const existingCart = carts.get(userId);
+      if (!existingCart) {
+        const newCart: ApiCart = { userId, entries: [] };
+        carts.set(userId, newCart);
+        return 0;
+      }
+
+      return populateCart(existingCart).total;
+    },
+  );
+
   // Get cart with products.
   fastify.get(
     '/cart/products',
@@ -49,28 +89,7 @@ export default async function (fastify: FastifyInstance) {
         cart = { userId, entries: [] };
         carts.set(userId, cart);
       }
-
-      const entriesWithProduct = cart.entries.map((item) => {
-        const product = products.get(item.productId);
-        if (!product) throw new Error(`Product ${item.productId} not found`);
-        return {
-          product,
-          quantity: item.quantity,
-          total: (Math.round(product.price * 100) * item.quantity) / 100,
-        };
-      });
-
-      const total =
-        entriesWithProduct.reduce((sum, item) => {
-          const itemTotal =
-            Math.round(item.product.price * 100) * item.quantity;
-          return sum + itemTotal;
-        }, 0) / 100;
-
-      return {
-        products: entriesWithProduct,
-        total,
-      };
+      return populateCart(cart);
     },
   );
 
@@ -108,15 +127,15 @@ export default async function (fastify: FastifyInstance) {
   );
 
   // Update cart product quantity
-  fastify.put(
+  fastify.patch(
     '/cart/products/:productId',
     { preHandler: authenticate },
     async (
       request: FastifyRequest<{
-        Params: { userId: string; productId: string };
+        Params: { productId: string };
         Body: { quantity: number };
       }>,
-    ) => {
+    ): Promise<ApiCartProduct> => {
       const userId = request.user.id;
       const { productId } = request.params;
       const { quantity } = request.body;
@@ -124,14 +143,18 @@ export default async function (fastify: FastifyInstance) {
       const cart = carts.get(userId);
       if (!cart) throw new Error('Cart not found');
 
-      const item = cart.entries.find((item) => item.productId === productId);
-      if (!item) throw new Error('Item not found in cart');
+      const entry = cart.entries.find((item) => item.productId === productId);
+      if (!entry) throw new Error('Item not found in cart');
 
       const product = products.get(productId);
       if (!product) throw new Error('Product not found');
 
-      item.quantity = quantity;
-      return cart;
+      entry.quantity = quantity;
+      return {
+        ...entry,
+        product,
+        total: (Math.round(product.price * 100) * entry.quantity) / 100,
+      };
     },
   );
 
