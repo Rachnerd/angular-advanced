@@ -38,7 +38,8 @@
         "outputDir": "dist/storybook/ui-components",
         "configDir": "libs/ui-components/.storybook",
         "browserTarget": "ui-components:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "webpackStatsJson": true
       },
       "configurations": {
         "ci": {

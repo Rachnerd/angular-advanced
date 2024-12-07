@@ -9,7 +9,8 @@
   "include": [
     "../src/**/*.stories.ts",
     "../../auth/src/**/*.stories.ts",
-    "*.ts",
-    "../src/**/*.component.ts"
+    "../src/**/*.component.ts",
+    "./modes.ts",
+    "./preview.ts"
   ]
 }

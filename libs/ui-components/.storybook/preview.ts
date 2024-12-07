@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/angular';
 import '!style-loader!css-loader!sass-loader!../../design-system/styles.scss';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
+import { allModes } from './modes';
 setCompodocJson(docJson);
 
 const preview: Preview = {
@@ -9,7 +10,7 @@ const preview: Preview = {
     themeMode: {
       name: 'Theme',
       description: 'Global theme for components',
-      defaultValue: false,
+      options: ['light', 'dark'],
     },
   },
   parameters: {
@@ -24,16 +25,15 @@ const preview: Preview = {
       lightFill: '#a05b00',
       darkFill: '#0926b5',
     },
-    globalTypes: {
-      themeMode: {
-        name: 'Theme',
-        description: 'Global theme for components',
-        defaultValue: false,
-      },
-    },
     options: {
       storySort: {
         order: ['Atoms', 'Molecules', 'Organisms', 'Templates'],
+      },
+    },
+    chromatic: {
+      modes: {
+        Light: allModes.light,
+        Dark: allModes.dark,
       },
     },
   },

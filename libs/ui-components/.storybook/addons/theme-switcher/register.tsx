@@ -1,4 +1,5 @@
 // .storybook/addons/theme-switcher/register.tsx
+// @ts-expect-error React is a dev dep
 import React from 'react';
 import { useGlobals, addons, types } from '@storybook/manager-api';
 import { Icons, IconButton } from '@storybook/components';
@@ -6,57 +7,20 @@ import { STORY_RENDERED } from '@storybook/core-events';
 
 const ADDON_ID = 'theme-switcher';
 const TOOL_ID = `${ADDON_ID}/toolbar`;
-const THEME_KEY = 'storybook-theme-mode';
 
 // Helper to get story iframe with retry logic
-const getStoryIframe = (
-  retries = 0,
-  maxRetries = 10,
-): Promise<HTMLIFrameElement | null> => {
-  return new Promise((resolve) => {
-    const iframe = document.querySelector(
-      '#storybook-preview-iframe',
-    ) as HTMLIFrameElement;
 
-    if (iframe?.contentDocument?.body || retries >= maxRetries) {
-      resolve(iframe);
-      return;
-    }
-
-    // Retry after a short delay
-    setTimeout(() => {
-      resolve(getStoryIframe(retries + 1, maxRetries));
-    }, 100);
-  });
-};
-
-const getStoredTheme = (): boolean => {
-  try {
-    const stored = localStorage.getItem(THEME_KEY);
-    return stored ? JSON.parse(stored) : false;
-  } catch {
-    return false;
-  }
-};
-
-const setStoredTheme = (value: boolean) => {
-  try {
-    localStorage.setItem(THEME_KEY, JSON.stringify(value));
-  } catch {
-    // Handle storage errors silently
-  }
-};
-
-const applyTheme = async (isDark: boolean) => {
-  const iframe = await getStoryIframe();
+const applyTheme = (mode: 'dark' | 'light') => {
+  const iframe = document.querySelector(
+    '#storybook-preview-iframe',
+  ) as HTMLIFrameElement;
   if (!iframe?.contentDocument?.body) return;
 
   const body = iframe.contentDocument.body;
-  const themeValue = isDark ? 'dark' : 'light';
 
-  body.setAttribute('data-theme', themeValue);
+  body.setAttribute('data-theme', mode);
   body.classList.remove('theme-light', 'theme-dark');
-  body.classList.add(`theme-${themeValue}`);
+  body.classList.add(`theme-${mode}`);
 };
 
 function ThemeSwitcher() {
@@ -65,7 +29,7 @@ function ThemeSwitcher() {
 
   // Initialize theme from storage
   React.useEffect(() => {
-    const storedTheme = getStoredTheme();
+    const storedTheme = 'light';
     if (storedTheme !== themeMode) {
       updateGlobals({ themeMode: storedTheme });
     }
@@ -75,9 +39,8 @@ function ThemeSwitcher() {
   React.useEffect(() => {
     const handleStoryChange = () => {
       setIsApplying(true);
-      applyTheme(themeMode).finally(() => {
-        setIsApplying(false);
-      });
+      applyTheme(themeMode);
+      setIsApplying(false);
     };
 
     // Apply initially
@@ -92,11 +55,10 @@ function ThemeSwitcher() {
     };
   }, [themeMode]);
 
-  const toggleTheme = React.useCallback(async () => {
-    const newTheme = !themeMode;
+  const toggleTheme = React.useCallback(() => {
+    const newTheme = themeMode === 'dark' ? 'light' : 'dark';
     updateGlobals({ themeMode: newTheme });
-    setStoredTheme(newTheme);
-    await applyTheme(newTheme);
+    applyTheme(newTheme);
   }, [themeMode]);
 
   return (
@@ -107,7 +69,7 @@ function ThemeSwitcher() {
       onClick={toggleTheme}
       disabled={isApplying}
     >
-      <Icons icon={themeMode ? 'moon' : 'sun'} />
+      <Icons icon={themeMode !== 'light' ? 'moon' : 'sun'} />
     </IconButton>
   );
 }
