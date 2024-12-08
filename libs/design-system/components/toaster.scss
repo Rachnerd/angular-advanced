@@ -1,0 +1,48 @@
+:root {
+  /* Layout & Positioning */
+  --toaster-z-index: 9999;
+  --toaster-position-x: var(--space-md);
+  --toaster-position-y: var(--space-md);
+
+  /* Dimensions */
+  --toaster-min-width: 300px;
+  --toaster-max-width: 500px;
+  --toaster-border-radius: var(--radius-md);
+
+  /* Spacing */
+  --toaster-padding-x: var(--space-md);
+  --toaster-padding-y: var(--space-sm);
+  --toaster-gap: var(--space-sm);
+  --toaster-margin: var(--space-md);
+
+  /* Typography */
+  --toaster-font-size: var(--font-sm);
+  --toaster-font-weight: var(--font-weight-medium);
+  --toaster-line-height: var(--leading-snug);
+  --toaster-letter-spacing: var(--tracking-normal);
+
+  /* Colors */
+  --toaster-bg-default: var(--color-neutral-800);
+  --toaster-text-default: var(--color-neutral-50);
+  --toaster-bg-success: var(--color-success-500);
+  --toaster-bg-error: var(--color-error-500);
+  --toaster-bg-warning: var(--color-warning-500);
+
+  /* Shadows */
+  --toaster-shadow-color: 0, 0, 0;
+  --toaster-shadow-opacity-ambient: 0.1;
+  --toaster-shadow-opacity-direct: 0.06;
+  --toaster-shadow: 0 4px 6px -1px rgba(var(--toaster-shadow-color), var(--toaster-shadow-opacity-ambient)),
+    0 2px 4px -1px rgba(var(--toaster-shadow-color), var(--toaster-shadow-opacity-direct));
+
+  /* Animation Timing */
+  --toaster-animation-duration: 0.2s;
+  --toaster-animation-easing: ease-out;
+
+  /* Animation Properties */
+  --toaster-slide-distance: 100%;
+  --toaster-opacity-hidden: 0;
+  --toaster-opacity-visible: 1;
+  --toaster-transform-initial: translateY(var(--toaster-slide-distance));
+  --toaster-transform-final: translateY(0);
+}

@@ -7,24 +7,21 @@
     </ul>
   </nav>
   <section actions>
-    @if ((userService.user$ | async)?.role === 'user') {
+    @if (user() !== undefined) {
       <a class="link" routerLink="cart">
         <ui-cart-icon [count]="cartCount() ?? 0"></ui-cart-icon>
       </a>
-    }
-
-    @if ((auth.isAuthenticated$ | async) === false) {
-      <a class="link" routerLink="login">
-        <auth-status-icon [isAuthenticated]="false"></auth-status-icon>
-      </a>
-    } @else {
       <auth-status-icon
         [isAuthenticated]="true"
         (click)="logout()"
       ></auth-status-icon>
+    } @else {
+      <a class="link" routerLink="login">
+        <auth-status-icon [isAuthenticated]="false"></auth-status-icon>
+      </a>
     }
-
     <ui-dark-mode-toggle></ui-dark-mode-toggle>
   </section>
 </ui-header>
 <router-outlet></router-outlet>
+<app-toaster-smart></app-toaster-smart>

@@ -1,0 +1,65 @@
+/* Updated CSS using the new tokens */
+:host {
+  position: fixed;
+  bottom: var(--toaster-position-y);
+  right: var(--toaster-position-x);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--toaster-gap);
+  z-index: var(--toaster-z-index);
+}
+
+.toast {
+  min-width: var(--toaster-min-width);
+  max-width: var(--toaster-max-width);
+  padding: var(--toaster-padding-y) var(--toaster-padding-x);
+  border-radius: var(--toaster-border-radius);
+  background: var(--toaster-bg-default);
+  color: var(--toaster-text-default);
+  font-size: var(--toaster-font-size);
+  font-weight: var(--toaster-font-weight);
+  line-height: var(--toaster-line-height);
+  letter-spacing: var(--toaster-letter-spacing);
+  box-shadow: var(--toaster-shadow);
+  animation: toast-in var(--toaster-animation-duration)
+    var(--toaster-animation-easing) forwards;
+}
+
+@keyframes toast-in {
+  from {
+    transform: var(--toaster-transform-initial);
+    opacity: var(--toaster-opacity-hidden);
+  }
+  to {
+    transform: var(--toaster-transform-final);
+    opacity: var(--toaster-opacity-visible);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    transform: var(--toaster-transform-final);
+    opacity: var(--toaster-opacity-visible);
+  }
+  to {
+    transform: var(--toaster-transform-initial);
+    opacity: var(--toaster-opacity-hidden);
+  }
+}
+
+.toast.removing {
+  animation: toast-out var(--toaster-animation-duration)
+    var(--toaster-animation-easing) forwards;
+}
+
+.toast.success {
+  background: var(--toaster-bg-success);
+}
+
+.toast.error {
+  background: var(--toaster-bg-error);
+}
+
+.toast.warning {
+  background: var(--toaster-bg-warning);
+}

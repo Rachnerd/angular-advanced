@@ -1,24 +1,12 @@
-import { ErrorHandler, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorHandler, inject, Injectable } from '@angular/core';
+import { ERROR_HANDLER } from './error-hander.token';
+import { ErrorHandler as CustomErrorHandler } from './error-handler.interface';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(private router: Router) {}
+  private errorHandlers = inject<CustomErrorHandler[]>(ERROR_HANDLER) ?? [];
 
-  handleError(error: Error) {
-    if (error instanceof HttpErrorResponse) {
-      switch (error.status) {
-        case 401:
-          this.router.navigate(['/login']);
-          break;
-        case 403:
-          this.router.navigate(['/forbidden']);
-          break;
-        default:
-          console.error(error);
-      }
-    }
-    // Send error to analytics
+  handleError(error: unknown) {
+    this.errorHandlers.forEach((errorHandler) => errorHandler.handle(error));
   }
 }

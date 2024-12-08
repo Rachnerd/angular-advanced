@@ -9,6 +9,9 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from '@angular-advanced/auth';
 import { LocalStorage, provideStorage } from '@angular-advanced/storage';
 import { GlobalErrorHandler } from './error/global-error-handler.service';
+import { ERROR_HANDLER } from './error/error-hander.token';
+import { HttpErrorHandler } from './error/handlers/http.error-handler';
+import { requestNotificationInterceptor } from './interceptors/request-notification.interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,12 +22,18 @@ export const appConfig: ApplicationConfig = {
         authInterceptor({
           whitelist: ['/api/products'],
         }),
+        requestNotificationInterceptor,
       ]),
     ),
     provideStorage(LocalStorage),
     {
       provide: ErrorHandler,
       useClass: GlobalErrorHandler,
+    },
+    {
+      provide: ERROR_HANDLER,
+      useClass: HttpErrorHandler,
+      multi: true,
     },
   ],
 };
