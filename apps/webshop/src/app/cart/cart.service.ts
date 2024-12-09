@@ -86,7 +86,14 @@ export class CartService {
       products,
       productIds: products.map(({ product }) => product.id),
     });
-    await this.getTotalPrice();
+    // No need to get total price if cart is empty
+    if (products.length !== 0) {
+      await this.getTotalPrice();
+    } else {
+      this.updateCartState({
+        total: 0,
+      });
+    }
   }
 
   async update(id: string, quantity: number): Promise<void> {
@@ -95,13 +102,11 @@ export class CartService {
         quantity,
       }),
     );
-
     this.updateCartState({
       products: this.cart.products.map((entry) =>
         entry.product.id === id ? updated : entry,
       ),
     });
-
     await this.getTotalPrice();
   }
 

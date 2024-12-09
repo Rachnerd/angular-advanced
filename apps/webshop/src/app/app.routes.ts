@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { ForbiddenPageComponent } from './pages/forbidden/forbidden.component';
 import { roleGuard } from '@angular-advanced/auth';
+import { LogoutPageComponent } from './pages/logout/logout-page.component';
 
 export const appRoutes: Route[] = [
   {
@@ -38,5 +39,17 @@ export const appRoutes: Route[] = [
   {
     path: 'forbidden',
     component: ForbiddenPageComponent,
+  },
+  {
+    path: 'not-found',
+    component: ForbiddenPageComponent,
+  },
+  {
+    path: 'logout',
+    component: LogoutPageComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
   },
 ];

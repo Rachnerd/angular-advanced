@@ -11,10 +11,9 @@
       <a class="link" routerLink="cart">
         <ui-cart-icon [count]="cartCount() ?? 0"></ui-cart-icon>
       </a>
-      <auth-status-icon
-        [isAuthenticated]="true"
-        (click)="logout()"
-      ></auth-status-icon>
+      <a class="link" routerLink="logout">
+        <auth-status-icon [isAuthenticated]="true"></auth-status-icon>
+      </a>
     } @else {
       <a class="link" routerLink="login">
         <auth-status-icon [isAuthenticated]="false"></auth-status-icon>

@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@angular-advanced/auth';
 import { firstValueFrom } from 'rxjs';
 import { ButtonComponent } from '@angular-advanced/ui-components/button/button.component';
@@ -47,30 +47,29 @@ export class LoginPageComponent implements OnInit {
   protected loading = signal(false);
 
   private auth = inject(AuthService);
-  private router = inject(Router);
 
   ngOnInit() {
     firstValueFrom(this.auth.isAuthenticated$).then((isAuthenticated) => {
       if (isAuthenticated) {
-        this.navigateToHome();
+        this.navigate();
       }
     });
   }
 
-  login() {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
+  async login() {
     const { password, username } = this.form.value;
     if (password && username) {
       this.loading.set(true);
-      this.auth.login(username, password).subscribe({
-        next: () => this.navigateToHome(),
-        error: () => {
-          this.loading.set(false);
-        },
-      });
+      await firstValueFrom(this.auth.login(username, password));
+      this.navigate();
     }
   }
 
-  private navigateToHome() {
-    this.router.navigate(['']);
+  private navigate() {
+    const { returnUrl = '' } = this.route.snapshot.queryParams;
+    this.router.navigate([returnUrl]);
   }
 }

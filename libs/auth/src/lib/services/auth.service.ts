@@ -30,11 +30,7 @@ export class AuthService {
       } satisfies ApiLoginRequest)
       .pipe(
         tap((response) => {
-          try {
-            this.tokenService.setTokens(response);
-          } catch (e) {
-            console.error(e);
-          }
+          this.tokenService.setTokens(response);
           this.userService.set(response.user);
         }),
         map((response) => response.user),

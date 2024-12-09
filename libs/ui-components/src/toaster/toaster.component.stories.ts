@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { ToasterComponent } from './toaster.component';
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 
 const meta: Meta<ToasterComponent> = {
   component: ToasterComponent,
-  title: 'ToasterComponent',
+  title: 'Molecules/Toaster',
 };
 export default meta;
 type Story = StoryObj<ToasterComponent>;
@@ -40,11 +38,3 @@ export const Primary: Story = {
     ],
   },
 };
-
-// export const Heading: Story = {
-//   args: {},
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     expect(canvas.getByText(/toaster works!/gi)).toBeTruthy();
-//   },
-// };
