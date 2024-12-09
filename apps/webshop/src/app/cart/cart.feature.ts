@@ -1,13 +1,23 @@
 import { createFeature, createReducer, createSelector, on } from '@ngrx/store';
-import { ApiCartProducts } from '@angular-advanced/server-types';
+import { ApiCartProduct } from '@angular-advanced/server-types';
 import { CartActions } from './cart.actions';
 
-type CartState = ApiCartProducts & { productIds: string[] };
+interface Normalized<T> {
+  byId: Record<string, T>;
+  ids: string[];
+}
+
+interface CartState {
+  entries: Normalized<ApiCartProduct>;
+  total: number;
+}
 
 const initialState: CartState = {
-  productIds: [],
   total: 0,
-  products: [],
+  entries: {
+    byId: {},
+    ids: [],
+  },
 };
 
 export const cartFeature = createFeature({
@@ -16,33 +26,54 @@ export const cartFeature = createFeature({
     initialState,
     on(CartActions.getIdsSuccess, (cart, { entries }) => ({
       ...cart,
-      productIds: entries.map(({ productId }) => productId),
+      entries: {
+        ...cart.entries,
+        ids: entries.map(({ productId }) => productId),
+      },
     })),
     on(CartActions.getSuccess, (_, { total, products }) => ({
       total,
-      products,
-      productIds: products.map(({ product }) => product.id),
+      entries: {
+        byId: products.reduce(
+          (acc, entry) => ({
+            ...acc,
+            [entry.product.id]: entry,
+          }),
+          {},
+        ),
+        ids: products.map(({ product }) => product.id),
+      },
     })),
     on(CartActions.postSuccess, (cart, { id }) => ({
       ...cart,
-      productIds: cart.productIds.includes(id)
-        ? cart.productIds
-        : [...cart.productIds, id],
+      entries: {
+        ...cart.entries,
+        ids: cart.entries.ids.includes(id)
+          ? cart.entries.ids
+          : [...cart.entries.ids, id],
+      },
     })),
     on(CartActions.patchSuccess, (cart, updated) => ({
       ...cart,
-      products: cart.products.map((entry) =>
-        entry.product.id === updated.product.id ? updated : entry,
-      ),
+      entries: {
+        ...cart.entries,
+        byId: {
+          ...cart.entries.byId,
+          [updated.product.id]: updated,
+        },
+      },
     })),
     on(CartActions.deleteSuccess, (cart, { id }) => {
-      const filteredProducts = cart.products.filter(
-        ({ product }) => product.id !== id,
-      );
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { [id]: removedEntry, ...remainingEntries } = cart.entries.byId;
       return {
         ...cart,
-        products: filteredProducts,
-        productIds: filteredProducts.map(({ product }) => product.id),
+        entries: {
+          byId: {
+            ...remainingEntries,
+          },
+          ids: cart.entries.ids.filter((productId) => productId !== id),
+        },
       };
     }),
     on(CartActions.getTotalSuccess, (cart, { total }) => ({
@@ -53,7 +84,13 @@ export const cartFeature = createFeature({
   extraSelectors: ({ selectCartState }) => ({
     selectCartCount: createSelector(
       selectCartState,
-      ({ productIds }) => productIds.length,
+      ({ entries: { ids } }) => ids.length,
     ),
+    selectCartWithProducts: createSelector(selectCartState, (cart) => ({
+      total: cart.total,
+      products: cart.entries.ids
+        .map((id) => cart.entries.byId[id])
+        .filter((entry) => entry !== undefined),
+    })),
   }),
 });

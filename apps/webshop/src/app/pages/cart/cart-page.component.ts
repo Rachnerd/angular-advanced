@@ -17,7 +17,7 @@ import { CartActions } from '../../cart/cart.actions';
 })
 export class CartPageComponent implements OnInit {
   private store = inject(Store);
-  cart = toSignal(this.store.select(cartFeature.selectCartState));
+  cart = toSignal(this.store.select(cartFeature.selectCartWithProducts));
 
   ngOnInit() {
     this.store.dispatch(CartActions.get());
