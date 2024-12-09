@@ -10,12 +10,14 @@ import {
   AuthStatusIconComponent,
   UserService,
 } from '@angular-advanced/auth';
-import { CartService } from './cart/cart.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DarkModeToggleComponent } from '@angular-advanced/ui-components/dark-mode-toggle/dark-mode-toggle.component';
 import { HeaderComponent } from '@angular-advanced/ui-components/header/header.component';
 import { CartIconComponent } from '@angular-advanced/ui-components/cart-icon/cart-icon.component';
 import { ToasterSmartComponent } from './toaster/toaster.component';
+import { Store } from '@ngrx/store';
+import { cartFeature } from './cart/cart.feature';
+import { CartActions } from './cart/cart.actions';
 
 @Component({
   standalone: true,
@@ -34,14 +36,16 @@ import { ToasterSmartComponent } from './toaster/toaster.component';
 })
 export class AppComponent implements OnInit {
   protected auth = inject(AuthService);
-  private cartService = inject(CartService);
-  cartCount = toSignal(this.cartService.cartCount$);
+  private store = inject(Store);
+  cartCount = toSignal(this.store.select(cartFeature.selectCartCount), {
+    initialValue: 0,
+  });
   user = toSignal(inject(UserService).user$);
 
   ngOnInit() {
     this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
       if (isAuthenticated) {
-        this.cartService.getCartCount();
+        this.store.dispatch(CartActions.getIds());
       }
     });
   }

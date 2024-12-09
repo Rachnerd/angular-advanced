@@ -9,7 +9,7 @@
   <section actions>
     @if (user() !== undefined) {
       <a class="link" routerLink="cart">
-        <ui-cart-icon [count]="cartCount() ?? 0"></ui-cart-icon>
+        <ui-cart-icon [count]="cartCount()"></ui-cart-icon>
       </a>
       <a class="link" routerLink="logout">
         <auth-status-icon [isAuthenticated]="true"></auth-status-icon>

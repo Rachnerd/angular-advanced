@@ -12,6 +12,10 @@ import { GlobalErrorHandler } from './error/global-error-handler.service';
 import { ERROR_HANDLER } from './error/error-hander.token';
 import { HttpErrorHandler } from './error/handlers/http.error-handler';
 import { requestNotificationInterceptor } from './interceptors/request-notification.interceptors';
+import { provideState, provideStore } from '@ngrx/store';
+import { cartFeature } from './cart/cart.feature';
+import { provideEffects } from '@ngrx/effects';
+import { CartEffects } from './cart/effects/cart.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -35,5 +39,8 @@ export const appConfig: ApplicationConfig = {
       useClass: HttpErrorHandler,
       multi: true,
     },
+    provideStore(),
+    provideState(cartFeature),
+    provideEffects(CartEffects),
   ],
 };

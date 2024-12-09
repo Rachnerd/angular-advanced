@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, firstValueFrom, map } from 'rxjs';
+import type { Observable } from 'rxjs';
 import {
   ApiCart,
   ApiCartProduct,
@@ -13,114 +13,44 @@ const API_ENDPOINTS = {
   total: '/api/cart/total',
 } as const;
 
-type CartState = ApiCartProducts & { productIds: string[] };
-
-const INITIAL_STATE: CartState = {
-  products: [],
-  productIds: [],
-  total: 0,
-};
-
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   private http = inject(HttpClient);
-  private cartSubject = new BehaviorSubject<CartState>(INITIAL_STATE);
-  cart$ = this.cartSubject.asObservable();
-  cartCount$ = this.cart$.pipe(map(({ productIds }) => productIds.length));
-
-  private get cart() {
-    return this.cartSubject.getValue();
-  }
 
   /**
    * Endpoint returns the cart with product ids.
    */
-  async getCartCount(): Promise<void> {
-    const { entries } = await firstValueFrom(
-      this.http.get<ApiCart>(API_ENDPOINTS.cart),
-    );
-    this.updateCartState({
-      productIds: entries.map((entry) => entry.productId),
-    });
+  getCartCount(): Observable<ApiCart> {
+    return this.http.get<ApiCart>(API_ENDPOINTS.cart);
   }
 
   /**
    * Endpoint returns the cart with fully resolved products.
    */
-  async get(): Promise<void> {
-    const cart = await firstValueFrom(
-      this.http.get<ApiCartProducts>(API_ENDPOINTS.products),
-    );
-    this.updateCartState({
-      ...cart,
-      productIds: cart.products.map(({ product }) => product.id),
+  get(): Observable<ApiCartProducts> {
+    return this.http.get<ApiCartProducts>(API_ENDPOINTS.products);
+  }
+
+  post(productId: string, quantity: number): Observable<void> {
+    return this.http.post<void>(API_ENDPOINTS.products, {
+      productId,
+      quantity,
     });
   }
 
-  async post(productId: string, quantity: number): Promise<void> {
-    await firstValueFrom(
-      this.http.post<ApiCartProducts>(API_ENDPOINTS.products, {
-        productId,
-        quantity,
-      }),
-    );
-    const inCart =
-      this.cart.productIds.find((id) => id === productId) !== undefined;
-    if (!inCart) {
-      this.updateCartState({
-        productIds: [...this.cart.productIds, productId],
-      });
-    }
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${API_ENDPOINTS.products}/${id}`);
   }
 
-  async delete(id: string): Promise<void> {
-    await firstValueFrom(
-      this.http.delete<void>(`${API_ENDPOINTS.products}/${id}`),
-    );
-    const products = this.cart.products.filter(
-      ({ product }) => product.id !== id,
-    );
-    this.updateCartState({
-      products,
-      productIds: products.map(({ product }) => product.id),
+  update(id: string, quantity: number): Observable<ApiCartProduct> {
+    return this.http.patch<ApiCartProduct>(`${API_ENDPOINTS.products}/${id}`, {
+      quantity,
     });
-    // No need to get total price if cart is empty
-    if (products.length !== 0) {
-      await this.getTotalPrice();
-    } else {
-      this.updateCartState({
-        total: 0,
-      });
-    }
   }
 
-  async update(id: string, quantity: number): Promise<void> {
-    const updated = await firstValueFrom(
-      this.http.patch<ApiCartProduct>(`${API_ENDPOINTS.products}/${id}`, {
-        quantity,
-      }),
-    );
-    this.updateCartState({
-      products: this.cart.products.map((entry) =>
-        entry.product.id === id ? updated : entry,
-      ),
-    });
-    await this.getTotalPrice();
-  }
-
-  private async getTotalPrice(): Promise<void> {
-    const total = await firstValueFrom(
-      this.http.get<number>(API_ENDPOINTS.total),
-    );
-    this.updateCartState({ total });
-  }
-
-  private updateCartState(newState: Partial<CartState>): void {
-    this.cartSubject.next({
-      ...this.cart,
-      ...newState,
-    });
+  getTotalPrice(): Observable<number> {
+    return this.http.get<number>(API_ENDPOINTS.total);
   }
 }

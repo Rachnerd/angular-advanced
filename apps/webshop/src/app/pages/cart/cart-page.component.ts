@@ -1,10 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../cart/cart.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { SidebarTemplateComponent } from '@angular-advanced/ui-components/sidebar-template/sidebar-template.component';
 import { CartEntryComponent } from '@angular-advanced/ui-components/cart-entry/cart-entry.component';
 import type { Product } from '@angular-advanced/ui-components/product/product.component';
+import { Store } from '@ngrx/store';
+import { cartFeature } from '../../cart/cart.feature';
+import { CartActions } from '../../cart/cart.actions';
 
 @Component({
   selector: 'app-cart-page',
@@ -14,19 +16,27 @@ import type { Product } from '@angular-advanced/ui-components/product/product.co
   styleUrl: './cart-page.component.scss',
 })
 export class CartPageComponent implements OnInit {
-  private cartService = inject(CartService);
-
-  cart = toSignal(this.cartService.cart$);
+  private store = inject(Store);
+  cart = toSignal(this.store.select(cartFeature.selectCartState));
 
   ngOnInit() {
-    this.cartService.get();
+    this.store.dispatch(CartActions.get());
   }
 
   remove(product: Product) {
-    this.cartService.delete(product.id);
+    this.store.dispatch(
+      CartActions.delete({
+        id: product.id,
+      }),
+    );
   }
 
   update(product: Product, quantity: number) {
-    this.cartService.update(product.id, quantity);
+    this.store.dispatch(
+      CartActions.patch({
+        id: product.id,
+        quantity,
+      }),
+    );
   }
 }
