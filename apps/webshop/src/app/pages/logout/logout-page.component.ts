@@ -23,7 +23,7 @@ export class LogoutPageComponent implements OnInit {
         switchMap((isAuthenticated) =>
           this.auth.logout().pipe(map(() => isAuthenticated)),
         ),
-        delay(2000),
+        delay(500),
       )
       .subscribe((isAuthenticated) => {
         if (isAuthenticated) {
