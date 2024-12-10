@@ -7,6 +7,7 @@
     "webshop": "nx serve webshop",
     "webshop:compodoc": "compodoc -p apps/webshop/tsconfig.json -s",
     "webshop:inspect": "nx build webshop && esbuild-visualizer --open --metadata ./dist/apps/webshop/stats.json",
+    "webshop:e2e": "nx e2e webshop-e2e --skip-nx-cache",
     "server": "nx serve fastify-api",
     "lint": "npx nx run-many --all --parallel --targets=lint",
     "build": "npx nx run-many --all --parallel --targets=build",
