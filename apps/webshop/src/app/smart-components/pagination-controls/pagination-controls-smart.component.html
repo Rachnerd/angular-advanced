@@ -1,0 +1,11 @@
+<ui-pagination-controls
+  [currentOrder]="queryParams().order"
+  [currentPageSize]="queryParams().limit"
+  [pageSizes]="[3, 6, 9]"
+  [currentSort]="sortOptions[0].value"
+  [sortOptions]="sortOptions"
+  [orderOptions]="orderOptions"
+  (orderChange)="updateOrder($event)"
+  (pageSizeChange)="updateParams({ limit: $event })"
+  (sortChange)="updateSort($event)"
+></ui-pagination-controls>

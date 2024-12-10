@@ -1,0 +1,14 @@
+@if (productsResponse(); as productsResponse) {
+  <ui-pagination
+    [currentPage]="productsResponse.metadata.currentPage"
+    [hasNextPage]="productsResponse.metadata.hasNextPage"
+    [hasPrevPage]="productsResponse.metadata.hasPreviousPage"
+    [totalPages]="productsResponse.metadata.totalPages"
+    (pageChange)="
+      updateParams({
+        page:
+          $event === 'next' ? queryParams().page + 1 : queryParams().page - 1,
+      })
+    "
+  ></ui-pagination>
+}

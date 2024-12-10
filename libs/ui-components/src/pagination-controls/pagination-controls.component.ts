@@ -2,7 +2,7 @@ import { Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-export interface SortOption {
+export interface Option {
   value: string;
   label: string;
 }
@@ -15,15 +15,16 @@ export interface SortOption {
   styleUrl: './pagination-controls.component.scss',
 })
 export class PaginationControlsComponent {
-  sortOptions = input<SortOption[]>([]);
+  sortOptions = input<Option[]>([]);
+  orderOptions = input<Option[]>([]);
   pageSizes = input<number[]>([]);
 
   currentSort = input.required<string>();
-  currentOrder = input.required<'asc' | 'desc'>();
+  currentOrder = input.required<string>();
   currentPageSize = input.required<number>();
 
   sortChange = output<string>();
-  orderChange = output<'asc' | 'desc'>();
+  orderChange = output<string>();
   pageSizeChange = output<number>();
 
   emitPageSize(page: string) {

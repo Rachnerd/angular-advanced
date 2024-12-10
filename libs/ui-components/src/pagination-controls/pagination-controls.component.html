@@ -6,9 +6,11 @@
       [ngModel]="currentSort()"
       (ngModelChange)="sortChange.emit($event)"
     >
-      <option *ngFor="let option of sortOptions()" [value]="option.value">
-        {{ option.label }}
-      </option>
+      @for (option of sortOptions(); track option.value) {
+        <option [value]="option.value">
+          {{ option.label }}
+        </option>
+      }
     </select>
   </div>
 
@@ -19,21 +21,24 @@
       [ngModel]="currentOrder()"
       (ngModelChange)="orderChange.emit($event)"
     >
-      <option value="asc">Ascending</option>
-      <option value="desc">Descending</option>
+      @for (option of orderOptions(); track option.value) {
+        <option [value]="option.value">
+          {{ option.label }}
+        </option>
+      }
     </select>
   </div>
 
   <div class="control-group">
-    <label for="pageSize">Items per page</label>
+    <label for="pageSize">Page size</label>
     <select
       id="pageSize"
       [ngModel]="currentPageSize()"
       (ngModelChange)="emitPageSize($event)"
     >
-      <option *ngFor="let size of pageSizes()" [value]="size">
-        {{ size }} items
-      </option>
+      @for (size of pageSizes(); track size) {
+        <option [value]="size">{{ size }}</option>
+      }
     </select>
   </div>
 </div>

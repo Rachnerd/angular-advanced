@@ -10,7 +10,7 @@ import { createHttpParams } from '../shared/http-params.util';
 const PAGINATION_QUERY: ApiPaginationQuery = {
   page: 1,
   limit: 3,
-  sort: 'id',
+  sort: 'title',
   order: 'asc',
 };
 

@@ -1,11 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import type { ApiPaginationQuery } from '@angular-advanced/server-types';
-import { ProductsGridComponent } from '../../products/grid/products-grid.component';
-import { ProductService } from '../../products/product.service';
+import { ProductsGridSmartComponent } from '../../smart-components/products-grid/products-grid-smart.component';
 import { SidebarTemplateComponent } from '@angular-advanced/ui-components/sidebar-template/sidebar-template.component';
-import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
-import { PaginationComponent } from '@angular-advanced/ui-components/pagination/pagination.component';
+import { PaginationControlsSmartComponent } from '../../smart-components/pagination-controls/pagination-controls-smart.component';
+import { PaginationSmartComponent } from '../../smart-components/pagination/pagination-smart.component';
 
 @Component({
   selector: 'app-products-side-page',
@@ -13,20 +11,11 @@ import { PaginationComponent } from '@angular-advanced/ui-components/pagination/
   imports: [
     CommonModule,
     SidebarTemplateComponent,
-    ProductsGridComponent,
-    PaginationControlsComponent,
-    PaginationComponent,
-    PaginationControlsComponent,
+    ProductsGridSmartComponent,
+    PaginationControlsSmartComponent,
+    PaginationSmartComponent,
   ],
   templateUrl: './products-side.component.html',
   styleUrl: './products-side.component.scss',
 })
-export class ProductsSidePageComponent {
-  private productService = inject(ProductService);
-  protected productsResponse = this.productService.productsResponse;
-  protected queryParams = this.productService.queryParams;
-
-  updateParams(params: Partial<ApiPaginationQuery>) {
-    this.productService.updateParams(params);
-  }
-}
+export class ProductsSidePageComponent {}

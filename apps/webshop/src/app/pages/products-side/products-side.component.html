@@ -1,40 +1,7 @@
 <ui-sidebar-template>
   <section sidebar>
-    @if (productsResponse(); as productsResponse) {
-      <ui-pagination-controls
-        [currentOrder]="queryParams().order"
-        [currentPageSize]="queryParams().limit"
-        [currentSort]="'id'"
-        [pageSizes]="[3, 6, 9]"
-        [sortOptions]="[
-          { value: 'id', label: 'Id' },
-          { value: 'price', label: 'Price' },
-        ]"
-        (orderChange)="updateParams({ order: $event })"
-        (pageSizeChange)="updateParams({ limit: $event })"
-        (sortChange)="updateParams({ sort: $event })"
-      ></ui-pagination-controls>
-      <ui-pagination
-        [currentPage]="queryParams().page"
-        [hasNextPage]="productsResponse.metadata.hasNextPage"
-        [hasPrevPage]="productsResponse.metadata.hasPreviousPage"
-        [totalPages]="productsResponse.metadata.totalPages"
-        (pageChange)="
-          updateParams({
-            page:
-              $event === 'next'
-                ? queryParams().page + 1
-                : queryParams().page - 1,
-          })
-        "
-      ></ui-pagination>
-    }
+    <app-pagination-controls-smart></app-pagination-controls-smart>
+    <app-pagination-smart></app-pagination-smart>
   </section>
-
-  @if (productsResponse(); as productsResponse) {
-    <app-products-grid
-      [products]="productsResponse.data"
-      main
-    ></app-products-grid>
-  }
+  <app-products-grid-smart main></app-products-grid-smart>
 </ui-sidebar-template>

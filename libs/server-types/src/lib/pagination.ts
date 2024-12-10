@@ -13,6 +13,6 @@ export interface ApiPaginatedResponse<T> {
 export interface ApiPaginationQuery {
   page: number;
   limit: number;
-  sort: string;
+  sort: 'title' | 'price';
   order: 'asc' | 'desc';
 }
