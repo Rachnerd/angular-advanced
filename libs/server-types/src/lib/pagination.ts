@@ -9,10 +9,3 @@ export interface ApiPaginatedResponse<T> {
     hasPreviousPage: boolean;
   };
 }
-
-export interface ApiPaginationQuery {
-  page: number;
-  limit: number;
-  sort: 'title' | 'price';
-  order: 'asc' | 'desc';
-}

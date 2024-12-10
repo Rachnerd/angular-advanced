@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../products/product.service';
-import { ApiPaginationQuery } from '@angular-advanced/server-types';
 import { PaginationComponent } from '@angular-advanced/ui-components/pagination/pagination.component';
+import { ApiProductSearchQueryType } from '@angular-advanced/server-types';
 
 @Component({
   selector: 'app-pagination-smart',
@@ -16,7 +16,7 @@ export class PaginationSmartComponent {
   protected productsResponse = this.productService.productsResponse;
   protected queryParams = this.productService.queryParams;
 
-  updateParams(params: Partial<ApiPaginationQuery>) {
+  updateParams(params: Partial<ApiProductSearchQueryType>) {
     this.productService.updateParams(params);
   }
 }

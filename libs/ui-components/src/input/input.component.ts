@@ -5,6 +5,7 @@ import {
   ViewChild,
   input,
   ChangeDetectionStrategy,
+  signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -36,16 +37,16 @@ export class InputComponent implements ControlValueAccessor {
   hasError = input(false);
   errorMessage = input<string>();
 
-  protected value = '';
-  protected disabled = false;
-  protected isFocused = false;
+  protected value = signal('');
+  protected disabled = signal(false);
+  protected focused = signal(false);
 
   private onChange?: (value: string) => void;
   private onTouch?: () => void;
 
   // ControlValueAccessor implementation
   writeValue(value: string): void {
-    this.value = value;
+    this.value.set(value);
   }
 
   registerOnChange(fn: (value: string) => void): void {
@@ -56,22 +57,23 @@ export class InputComponent implements ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+  setDisabledState(disabled: boolean): void {
+    this.disabled.set(disabled);
   }
 
   onInputChange(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
-    this.value = value;
+    this.value.set(value);
     this.onChange?.(value);
   }
 
   onFocus(): void {
-    this.isFocused = true;
+    this.focused.set(true);
+    this.focus();
   }
 
   onBlur(): void {
-    this.isFocused = false;
+    this.focused.set(false);
     this.onTouch?.();
   }
 

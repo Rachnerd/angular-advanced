@@ -1,5 +1,8 @@
-const getProductsSchema = {
-  querystring: paginationQuerySchema,
+import { searchQuerySchema } from './search.schema';
+import { productSchema } from './product.schema';
+
+export const getProductsSchema = {
+  querystring: searchQuerySchema,
   response: {
     200: {
       type: 'object',

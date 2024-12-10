@@ -1,7 +1,7 @@
 <div
   class="input-container"
   [class.error]="hasError()"
-  [class.disabled]="disabled"
+  [class.disabled]="disabled()"
 >
   @if (label()) {
     <label [for]="id()" class="label">
@@ -13,7 +13,7 @@
     </label>
   }
 
-  <div class="input-wrapper" [class.focused]="isFocused">
+  <div class="input-wrapper" [class.focused]="focused()">
     @if (leadingIcon()) {
       <div class="leading-icon">
         <ng-content select="[leadingIcon]"></ng-content>
@@ -25,8 +25,8 @@
       [id]="id()"
       [type]="type()"
       [placeholder]="placeholder()"
-      [value]="value"
-      [disabled]="disabled"
+      [value]="value()"
+      [disabled]="disabled()"
       [required]="required()"
       (input)="onInputChange($event)"
       (focus)="onFocus()"

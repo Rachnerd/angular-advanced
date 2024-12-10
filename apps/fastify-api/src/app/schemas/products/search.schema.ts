@@ -1,29 +1,44 @@
-import { Static, Type } from '@sinclair/typebox';
-
-export const SearchQuerySchema = Type.Object({
-  page: Type.Optional(Type.Number({ minimum: 1, default: 1 })),
-  limit: Type.Optional(Type.Number({ minimum: 1, maximum: 100, default: 20 })),
-  search: Type.Optional(Type.String()),
-  category: Type.Optional(Type.String()),
-  minPrice: Type.Optional(Type.Number({ minimum: 0 })),
-  maxPrice: Type.Optional(Type.Number({ minimum: 0 })),
-  type: Type.Optional(
-    Type.Union([
-      Type.Literal('default'),
-      Type.Literal('limited'),
-      Type.Literal('out-of-stock'),
-    ]),
-  ),
-  sortBy: Type.Optional(
-    Type.Union([
-      Type.Literal('price'),
-      Type.Literal('rating'),
-      Type.Literal('title'),
-    ]),
-  ),
-  sortOrder: Type.Optional(
-    Type.Union([Type.Literal('asc'), Type.Literal('desc')]),
-  ),
-});
-
-export type SearchQueryType = Static<typeof SearchQuerySchema>;
+// JSON Schema for Fastify validation
+export const searchQuerySchema = {
+  type: 'object',
+  properties: {
+    page: {
+      type: 'number',
+      minimum: 1,
+      default: 1,
+    },
+    limit: {
+      type: 'number',
+      minimum: 1,
+      maximum: 100,
+      default: 20,
+    },
+    search: {
+      type: 'string',
+    },
+    category: {
+      type: 'string',
+    },
+    minPrice: {
+      type: 'number',
+      minimum: 0,
+    },
+    maxPrice: {
+      type: 'number',
+      minimum: 0,
+    },
+    type: {
+      type: 'string',
+      enum: ['default', 'limited', 'out-of-stock'],
+    },
+    sortBy: {
+      type: 'string',
+      enum: ['price', 'rating', 'title'],
+    },
+    sortOrder: {
+      type: 'string',
+      enum: ['asc', 'desc'],
+    },
+  },
+  additionalProperties: false,
+} as const;

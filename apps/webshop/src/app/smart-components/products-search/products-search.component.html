@@ -1,0 +1,45 @@
+<form [formGroup]="form">
+  <ui-input
+    formControlName="search"
+    [trailingIcon]="true"
+    placeholder="Search products..."
+  >
+    <span trailingIcon>
+      @if (search.value === '') {
+        <!-- Search Icon -->
+        <svg width="24" height="24">
+          <use href="#search-icon" />
+        </svg>
+      } @else {
+        <!-- Cross Icon -->
+        <svg width="24" height="24" class="cross" (click)="reset()">
+          <use href="#cross-icon" />
+        </svg>
+      }
+    </span>
+  </ui-input>
+</form>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon-definition">
+  <symbol id="search-icon" viewBox="0 0 24 24">
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M15.5 15.5L19 19M5 11a6 6 0 1012 0 6 6 0 00-12 0z"
+    />
+  </symbol>
+
+  <symbol id="cross-icon" viewBox="0 0 24 24">
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M6 6l12 12m0-12L6 18"
+    />
+  </symbol>
+</svg>

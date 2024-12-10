@@ -1,17 +1,19 @@
 import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService } from '../../products/product.service';
-import { ApiPaginationQuery } from '@angular-advanced/server-types';
+import {
+  ProductSearchQuery,
+  ProductService,
+} from '../../products/product.service';
 import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
 import { ActivatedRoute, Router } from '@angular/router';
 
 interface SortOptions {
-  value: ApiPaginationQuery['sort'];
+  value: ProductSearchQuery['sortBy'];
   label: string;
 }
 
 interface OrderOptions {
-  value: ApiPaginationQuery['order'];
+  value: ProductSearchQuery['sortOrder'];
   label: string;
 }
 
@@ -53,7 +55,7 @@ export class PaginationControlsSmartComponent {
     });
   }
 
-  updateParams(params: Partial<ApiPaginationQuery>) {
+  updateParams(params: Partial<ProductSearchQuery>) {
     this.productService.updateParams(params);
   }
 
@@ -64,7 +66,7 @@ export class PaginationControlsSmartComponent {
    */
   updateSort(sort: string) {
     this.updateParams({
-      sort: sort as ApiPaginationQuery['sort'],
+      sortBy: sort as ProductSearchQuery['sortBy'],
     });
   }
 
@@ -73,7 +75,7 @@ export class PaginationControlsSmartComponent {
    */
   updateOrder(order: string) {
     this.updateParams({
-      order: order as ApiPaginationQuery['order'],
+      sortOrder: order as ProductSearchQuery['sortOrder'],
     });
   }
 }

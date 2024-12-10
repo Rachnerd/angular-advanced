@@ -2,16 +2,23 @@ import { effect, inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type {
   ApiPaginatedResponse,
-  ApiPaginationQuery,
   ApiProduct,
+  ApiProductSearchQueryType,
 } from '@angular-advanced/server-types';
 import { createHttpParams } from '../shared/http-params.util';
+import { Required } from '@angular-advanced/ui-components/input/input.component.stories';
 
-const PAGINATION_QUERY: ApiPaginationQuery = {
+export type ProductSearchQuery = Pick<
+  Required<ApiProductSearchQueryType>,
+  'sortBy' | 'sortOrder' | 'page' | 'limit' | 'search'
+>;
+
+const PAGINATION_QUERY: ProductSearchQuery = {
   page: 1,
   limit: 3,
-  sort: 'title',
-  order: 'asc',
+  sortBy: 'title',
+  sortOrder: 'asc',
+  search: '',
 };
 
 @Injectable({
@@ -22,7 +29,7 @@ export class ProductService {
   private productsResponseSignal = signal<
     ApiPaginatedResponse<ApiProduct> | undefined
   >(undefined);
-  private queryParamsSignal = signal<ApiPaginationQuery>(PAGINATION_QUERY);
+  private queryParamsSignal = signal<ProductSearchQuery>(PAGINATION_QUERY);
   readonly productsResponse = this.productsResponseSignal.asReadonly();
   readonly queryParams = this.queryParamsSignal.asReadonly();
 
@@ -34,7 +41,7 @@ export class ProductService {
     });
   }
 
-  updateParams(params: Partial<ApiPaginationQuery>) {
+  updateParams(params: Partial<ProductSearchQuery>) {
     this.queryParamsSignal.update((current) => ({
       ...current,
       ...params,
