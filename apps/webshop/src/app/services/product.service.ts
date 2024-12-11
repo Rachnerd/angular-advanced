@@ -1,11 +1,10 @@
 import { effect, inject, Injectable, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import type {
   ApiPaginatedResponse,
   ApiProduct,
   ApiProductSearchQueryType,
 } from '@angular-advanced/server-types';
-import { createHttpParams } from '../shared/http-params.util';
 import { Required } from '@angular-advanced/ui-components/input/input.component.stories';
 
 export type ProductSearchQuery = Pick<
@@ -53,4 +52,13 @@ export class ProductService {
       params: createHttpParams(this.queryParamsSignal()),
     });
   }
+}
+
+function createHttpParams(params: Record<string, unknown>): HttpParams {
+  return Object.entries(params).reduce((httpParams, [key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      return httpParams.set(key, value.toString());
+    }
+    return httpParams;
+  }, new HttpParams());
 }

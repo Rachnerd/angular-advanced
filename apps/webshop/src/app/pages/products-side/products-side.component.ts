@@ -4,7 +4,7 @@ import { ProductsGridSmartComponent } from '../../smart-components/products-grid
 import { SidebarTemplateComponent } from '@angular-advanced/ui-components/sidebar-template/sidebar-template.component';
 import { PaginationControlsSmartComponent } from '../../smart-components/pagination-controls/pagination-controls-smart.component';
 import { PaginationSmartComponent } from '../../smart-components/pagination/pagination-smart.component';
-import { ProductsSearchComponent } from '../../smart-components/products-search/products-search.component';
+import { ProductsSearchSmartComponent } from '../../smart-components/products-search/products-search-smart.component';
 
 @Component({
   selector: 'app-products-side-page',
@@ -15,7 +15,7 @@ import { ProductsSearchComponent } from '../../smart-components/products-search/
     ProductsGridSmartComponent,
     PaginationControlsSmartComponent,
     PaginationSmartComponent,
-    ProductsSearchComponent,
+    ProductsSearchSmartComponent,
   ],
   templateUrl: './products-side.component.html',
   styleUrl: './products-side.component.scss',

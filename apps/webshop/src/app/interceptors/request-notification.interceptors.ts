@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
-import { ToastService } from '../toaster/toaster.service';
 import { tap } from 'rxjs';
 import { HttpInterceptorFn, HttpResponse } from '@angular/common/http';
+import { ToastService } from '../services/toaster.service';
 
 export const requestNotificationInterceptor: HttpInterceptorFn = (
   request,

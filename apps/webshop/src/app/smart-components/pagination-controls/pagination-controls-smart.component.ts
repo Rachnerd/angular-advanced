@@ -1,11 +1,11 @@
 import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   ProductSearchQuery,
   ProductService,
-} from '../../products/product.service';
-import { PaginationControlsComponent } from '@angular-advanced/ui-components/pagination-controls/pagination-controls.component';
-import { ActivatedRoute, Router } from '@angular/router';
+} from '../../services/product.service';
 
 interface SortOptions {
   value: ProductSearchQuery['sortBy'];

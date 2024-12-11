@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { delay, map, mergeWith, Observable, ReplaySubject, scan } from 'rxjs';
 import { Toast } from '@angular-advanced/ui-components/toaster/toaster.component';
-import { mapToArray } from '../shared/data.utils';
 
 interface ToastState extends Toast {
   status: 'place' | 'fade' | 'remove';
@@ -48,7 +47,7 @@ export class ToastService {
           };
       }
     }, {}),
-    map(mapToArray),
+    map((map) => Object.keys(map).map((key) => map[key])),
   );
 
   show(message: string, type: Toast['type'] = 'default'): void {
