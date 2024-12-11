@@ -15,9 +15,9 @@ export interface Option {
   styleUrl: './pagination-controls.component.scss',
 })
 export class PaginationControlsComponent {
-  sortOptions = input<Option[]>([]);
-  orderOptions = input<Option[]>([]);
-  pageSizes = input<number[]>([]);
+  sortOptions = input.required<Option[]>();
+  orderOptions = input.required<Option[]>();
+  pageSizes = input.required<number[]>();
 
   currentSort = input.required<string>();
   currentOrder = input.required<string>();

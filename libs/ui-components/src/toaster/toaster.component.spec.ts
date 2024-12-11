@@ -12,6 +12,7 @@ describe('ToasterComponent', () => {
 
     fixture = TestBed.createComponent(ToasterComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('toasts', []);
     fixture.detectChanges();
   });
 

@@ -12,6 +12,12 @@ describe('PaginationControlsComponent', () => {
 
     fixture = TestBed.createComponent(PaginationControlsComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('sortOptions', []);
+    fixture.componentRef.setInput('orderOptions', []);
+    fixture.componentRef.setInput('pageSizes', []);
+    fixture.componentRef.setInput('currentSort', 'title');
+    fixture.componentRef.setInput('currentOrder', 'asc');
+    fixture.componentRef.setInput('currentPageSize', 3);
     fixture.detectChanges();
   });
 

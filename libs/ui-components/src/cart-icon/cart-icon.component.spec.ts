@@ -12,6 +12,7 @@ describe('CartIconComponent', () => {
 
     fixture = TestBed.createComponent(CartIconComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('count', 0);
     fixture.detectChanges();
   });
 
