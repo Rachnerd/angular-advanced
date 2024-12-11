@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService } from '../../products/product.service';
 import { PaginationComponent } from '@angular-advanced/ui-components/pagination/pagination.component';
 import { ApiProductSearchQueryType } from '@angular-advanced/server-types';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-pagination-smart',

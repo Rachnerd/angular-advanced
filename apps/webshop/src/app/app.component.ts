@@ -10,12 +10,12 @@ import {
   AuthStatusIconComponent,
   UserService,
 } from '@angular-advanced/auth';
-import { CartService } from './cart/cart.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DarkModeToggleComponent } from '@angular-advanced/ui-components/dark-mode-toggle/dark-mode-toggle.component';
 import { HeaderComponent } from '@angular-advanced/ui-components/header/header.component';
 import { CartIconComponent } from '@angular-advanced/ui-components/cart-icon/cart-icon.component';
-import { ToasterSmartComponent } from './toaster/toaster.component';
+import { ToasterSmartComponent } from './smart-components/toaster/toaster-smart.component';
+import { CartService } from './services/cart.service';
 
 @Component({
   standalone: true,

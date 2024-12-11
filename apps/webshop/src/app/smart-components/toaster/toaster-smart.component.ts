@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ToasterComponent } from '@angular-advanced/ui-components/toaster/toaster.component';
-import { ToastService } from './toaster.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ToastService } from '../../services/toaster.service';
 
 @Component({
   selector: 'app-toaster-smart',
   standalone: true,
   imports: [ToasterComponent],
-  templateUrl: './toaster.component.html',
-  styleUrl: './toaster.component.scss',
+  templateUrl: './toaster-smart.component.html',
+  styleUrl: './toaster-smart.component.scss',
 })
 export class ToasterSmartComponent {
   private toasterService = inject(ToastService);

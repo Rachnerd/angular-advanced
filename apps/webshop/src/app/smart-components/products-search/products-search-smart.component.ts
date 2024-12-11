@@ -3,16 +3,16 @@ import { InputComponent } from '@angular-advanced/ui-components/input/input.comp
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
-import { ProductService } from '../../products/product.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
-  selector: 'app-products-search',
+  selector: 'app-products-search-smart',
   standalone: true,
   imports: [InputComponent, ReactiveFormsModule],
-  templateUrl: './products-search.component.html',
-  styleUrl: './products-search.component.scss',
+  templateUrl: './products-search-smart.component.html',
+  styleUrl: './products-search-smart.component.scss',
 })
-export class ProductsSearchComponent {
+export class ProductsSearchSmartComponent {
   private productService = inject(ProductService);
   private fb = new FormBuilder();
 

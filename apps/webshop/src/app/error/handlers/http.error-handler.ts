@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { ErrorHandler } from '../error-handler.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ToastService } from '../../toaster/toaster.service';
+import { ToastService } from '../../services/toaster.service';
 
 @Injectable()
 export class HttpErrorHandler implements ErrorHandler {

@@ -1,10 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiProduct } from '@angular-advanced/server-types';
-import { CartService } from '../../cart/cart.service';
 import { GridComponent } from '@angular-advanced/ui-components/grid/grid.component';
 import { ProductComponent } from '@angular-advanced/ui-components/product/product.component';
-import { ProductService } from '../../products/product.service';
+import { CartService } from '../../services/cart.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products-grid-smart',
