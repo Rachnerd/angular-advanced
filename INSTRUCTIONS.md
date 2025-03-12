@@ -74,9 +74,10 @@ Do you like HTML and SCSS?
 ### Template
 
 - Create a new template called |name|-template.
-  - Look at main-template and take over the header section.
   - Split the main section in "side" and "main" to support a sidebar.
 - Generate a new webshop component and bind it to a new route.
   - Add the route in app.component.html so you can reach it.
 - Implement your template so the products are listed in the "main" slot and pagination/pagination-controls in the sidebar.
-  - You need to update pagination and pagination-controls so they fit in a small space.
+  - You need to update pagination and pagination-controls CSS so they fit in a small space.
+  - Tip: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries
+    - Container queries allow specific CSS rules for small containers.

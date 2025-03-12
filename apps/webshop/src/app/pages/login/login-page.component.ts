@@ -11,6 +11,7 @@ import { InputComponent } from '@angular-advanced/ui-components/input/input.comp
 import { FormComponent } from '@angular-advanced/ui-components/form/form.component';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import { MainTemplateComponent } from '@angular-advanced/ui-components/main-template/main-template.component';
 
 @Component({
   selector: 'app-login-page',
@@ -21,6 +22,7 @@ import { Router } from '@angular/router';
     InputComponent,
     FormComponent,
     ReactiveFormsModule,
+    MainTemplateComponent,
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',

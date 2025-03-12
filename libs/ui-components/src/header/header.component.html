@@ -1,0 +1,13 @@
+<header>
+  <div class="header-content">
+    <div class="logo">
+      <ng-content select="[logo]"></ng-content>
+    </div>
+    <nav>
+      <ng-content select="[slot=navigation]"></ng-content>
+    </nav>
+    <div class="actions">
+      <ng-content select="[actions]"></ng-content>
+    </div>
+  </div>
+</header>

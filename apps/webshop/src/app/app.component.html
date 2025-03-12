@@ -1,4 +1,4 @@
-<ui-main-template>
+<ui-header>
   <section logo>Logo</section>
   <nav slot="navigation">
     <ul>
@@ -13,13 +13,11 @@
     } @else {
       <ui-auth-status-icon
         [isAuthenticated]="true"
-        (click)="auth.logout()"
+        (click)="logout()"
       ></ui-auth-status-icon>
     }
 
     <ui-dark-mode-toggle></ui-dark-mode-toggle>
   </section>
-  <section main>
-    <router-outlet></router-outlet>
-  </section>
-</ui-main-template>
+</ui-header>
+<router-outlet></router-outlet>

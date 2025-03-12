@@ -11,6 +11,7 @@ import type {
   ApiPaginatedResponse,
   ApiPaginationQuery,
 } from '@angular-advanced/server-types';
+import { MainTemplateComponent } from '@angular-advanced/ui-components/main-template/main-template.component';
 
 @Component({
   selector: 'app-products-page',
@@ -21,6 +22,7 @@ import type {
     PaginationComponent,
     PaginationControlsComponent,
     GridComponent,
+    MainTemplateComponent,
   ],
   templateUrl: './products-page.component.html',
   styleUrl: './products-page.component.scss',
